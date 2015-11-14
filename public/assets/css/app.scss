@@ -1,0 +1,145 @@
+@import "../src/bower_components/bootstrap-sass/assets/stylesheets/_bootstrap";
+@import "variables";
+
+/**
+* Custom Site Styles
+*/
+
+body {
+  font-family: "Montserrat", sans-serif!important;
+}
+
+/**
+.navbar-default {
+  background: lighten(#111,10%);
+  border: none;
+  border-radius: 0;
+}
+*/
+
+.top-banner {
+  //padding: 200px 0 200px 0;
+  background: white;
+  h3 {
+    color: #111;
+    font-size: 50px;
+    text-align: center;
+    font-weight: 700;
+    font-family: Montserrat,sans-serif!important;
+  }
+}
+
+.status-button {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 200px;
+  background: #111;
+  a {
+    display: block;
+    position: relative;
+    top: 88px;
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    font-size: 30px;
+    color: $white;
+    text-decoration: underline;
+  }
+}
+
+.projects-lists {
+  margin-top: 50px;
+  ul {
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+    border: none;
+    li {
+      border: none;
+      padding: 10px 0 10px 0;
+    }
+  }
+  h3 {
+    font-size: 25px;
+    &.title {
+      color: gray;
+      margin-bottom: 30px;
+    }
+  }
+  .status-big-text {
+    color: black;
+  }
+  .list-item {
+    display: inline-block;
+    vertical-align: top;
+    width: 80%;
+    height: 100px;
+  }
+}
+
+/**
+.list-badge-wrapper {
+  display: inline-block;
+  .list-badge {
+    display: table;
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+    margin-right: 10px;
+    background: #86E2D5;
+    color: black;
+    text-align: center;
+    position: relative;
+    p {
+      display: table-cell;
+      vertical-align: middle;
+      font-size: 40px;
+    }
+  }
+}
+**/
+
+.show-results {
+  margin-top: 50px;
+  .table {
+    border-collapse: collapse;
+    th {
+      background: darken(white,10%);
+      color: lighten(black,20%);
+      //border-right: 1px solid lighten(black, 35%);
+      //border-bottom: 1px solid lighten(black,25%);
+      border-top: none;
+      height: 60px;
+      vertical-align: middle;
+      //text-align: center;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 0 20px;
+      &:last-of-type {
+        border-right: none;
+      }
+    }
+    td {
+      height: 50px;
+      vertical-align: middle;
+      color: lighten(black,40%);
+      //color: #1E824C;
+      font-weight: 400;
+      padding: 0 20px;
+    }
+  }
+  .light-color {
+    color: lighten(black,50%);
+  }
+}
+
+.filter-table {
+  margin-bottom: 20px;
+  select {
+    height: 30px;
+    padding: 0 10px;
+    margin-left: 10px;
+  }
+}
+

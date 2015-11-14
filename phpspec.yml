@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Dashboard
+        psr4_prefix: Dashboard
+        src_path: app
