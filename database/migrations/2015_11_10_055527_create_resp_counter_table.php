@@ -16,7 +16,7 @@ class CreateRespCounterTable extends Migration
             $table->increments('counterid')->unique();
             $table->string('respid');
             $table->string('projectid');
-            $table->string('about');
+            $table->longText('about');
             $table->integer('Languageid');
             $table->string("status");
             $table->string("IP");
