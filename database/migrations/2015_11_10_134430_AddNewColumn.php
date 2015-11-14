@@ -13,7 +13,7 @@ class AddNewColumn extends Migration
     public function up()
     {
         Schema::table('resp_counters', function (Blueprint $table) {
-            $table->increments('id')->unique();
+            //$table->increments('id')->unique();
         });
     }
 
@@ -25,7 +25,7 @@ class AddNewColumn extends Migration
     public function down()
     {
         Schema::table('resp_counters', function (Blueprint $table) {
-            $table->dropColumn('id');
+            //$table->dropColumn('id');
         });
     }
 }
