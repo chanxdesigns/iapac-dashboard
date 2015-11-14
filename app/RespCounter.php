@@ -9,6 +9,7 @@ class RespCounter extends Model
     protected $fillable = [
         "respid",
         "projectid",
+        "about",
         "Languageid",
         "status",
         "IP",
