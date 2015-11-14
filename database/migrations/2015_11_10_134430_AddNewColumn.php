@@ -13,7 +13,7 @@ class AddNewColumn extends Migration
     public function up()
     {
         Schema::table('resp_counters', function (Blueprint $table) {
-            $table->string('about')->after('projectid');
+            //$table->string('about')->after('projectid');
         });
     }
 
@@ -25,7 +25,7 @@ class AddNewColumn extends Migration
     public function down()
     {
         Schema::table('resp_counters', function (Blueprint $table) {
-            $table->dropColumn('about');
+            //$table->dropColumn('about');
         });
     }
 }
