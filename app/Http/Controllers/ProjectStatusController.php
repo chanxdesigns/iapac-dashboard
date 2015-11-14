@@ -17,7 +17,6 @@ class ProjectStatusController extends Controller
         $arrDatas = [];
         foreach($rawDatas as $data) {
             $arrDatas[] = array(
-                'counterid' => $data->counterid,
                 'respid' => $data->respid,
                 'projectid' => $data->projectid,
                 'about' => $data->about,
@@ -42,7 +41,6 @@ class ProjectStatusController extends Controller
         $arrDatas = [];
         foreach($rawDatas as $data) {
             $arrDatas[] = array(
-                'counterid' => $data->counterid,
                 'respid' => $data->respid,
                 'projectid' => $data->projectid,
                 'about' => $data->about,
@@ -66,7 +64,6 @@ class ProjectStatusController extends Controller
         $arrDatas = [];
         foreach($rawDatas as $data) {
             $arrDatas[] = array(
-                'counterid' => $data->counterid,
                 'respid' => $data->respid,
                 'projectid' => $data->projectid,
                 'about' => $data->about,

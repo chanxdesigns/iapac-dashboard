@@ -66,7 +66,6 @@ class ShowResultsController extends Controller
         $arrDatas = [];
         foreach($dataset as $data) {
             $arrDatas[] = array(
-                'counterid' => $data->counterid,
                 'respid' => $data->respid,
                 'projectid' => $data->projectid,
                 'about' => $data->about,
