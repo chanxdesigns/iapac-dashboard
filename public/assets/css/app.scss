@@ -1,5 +1,5 @@
-@import "../src/bower_components/bootstrap-sass/assets/stylesheets/_bootstrap";
-@import "variables";
+// Vraiables
+$white: #FFFFFF;
 
 /**
 * Custom Site Styles
@@ -143,3 +143,9 @@ body {
   }
 }
 
+.login-form {
+  margin-top: 30px;
+  .form-control {
+    width: 50%;
+  }
+}

@@ -11,57 +11,6 @@ use Illuminate\Support\Facades\DB;
 
 class ShowResultsController extends Controller
 {
-
-    /**
-     * @param $rawdataset array
-     * @return string
-     *
-     * Convert country code to country name
-     */
-    protected function codeToName($code)
-    {
-        //Empty country name container
-        $country = "";
-
-            //For every country code loop through and change country code to country name
-            switch ($code) {
-                case 1 :
-                    $country = "Singapore";
-                    break;
-                case 2 :
-                    $country = "South Korea";
-                    break;
-                case 3 :
-                    $country = "India";
-                    break;
-                case 4 :
-                    $country = "China";
-                    break;
-                case 5 :
-                    $country = "Philippines";
-                    break;
-                case 6 :
-                    $country = "Vietnam";
-                    break;
-                case 7 :
-                    $country = "Malaysia";
-                    break;
-                case 8 :
-                    $country = "Japan";
-                    break;
-                case 9 :
-                    $country = "Thailand";
-                    break;
-                case 10 :
-                    $country = "Indonesia";
-                    break;
-                case 11 :
-                    $country = "UAE";
-                    break;
-            }
-        return $country;
-    }
-
     protected function objectToArray ($dataset) {
         $arrDatas = [];
         foreach($dataset as $data) {
@@ -69,7 +18,7 @@ class ShowResultsController extends Controller
                 'respid' => $data->respid,
                 'projectid' => $data->projectid,
                 'about' => $data->about,
-                'Languageid' => $this->codeToName($data->Languageid),
+                'Languageid' => $data->Languageid,
                 'status' => $data->status,
                 'IP' => $data->IP,
                 'enddate' => $data->enddate

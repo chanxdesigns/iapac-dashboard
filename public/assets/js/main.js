@@ -58,4 +58,21 @@ $(document).ready(function () {
         displayRowsCount();
 
     });
+
+    /*-------------------------------------------------------
+     *  Admin Menu
+     */
+
+    var url = "http://dashboard.i-apaconline.com/adminpanel/projects";
+
+    $('.admin-panel .panel-body').click(function (){
+        var $this = $(this);
+        var x = $this.text();
+        var val = $.trim(x);
+
+        url += "/"+val;
+        console.log(url)
+    })
+
+
 });
