@@ -31,7 +31,7 @@
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Status</h3>
+                    <h3 class="panel-title">Country</h3>
                 </div>
                 @for ($i = 0; $i < count($country); $i++)
                     <div class="panel-body">
