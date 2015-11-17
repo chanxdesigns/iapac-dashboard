@@ -117,4 +117,16 @@ body {
   .login-form .form-control {
     width: 50%; }
 
+/** Admin Styles **/
+.panel-body select {
+  width: 100%;
+  height: 30px;
+  padding: 0 5px 0 5px;
+  border: 1px solid #ddd; }
+
+.resp-data tr {
+  height: 30px; }
+.resp-data th {
+  width: 200px; }
+
 /*# sourceMappingURL=app.css.map */

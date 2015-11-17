@@ -23,4 +23,4 @@ Route::get('admin', 'Auth\AuthController@getLogin');
 Route::post('admin/login', 'Auth\AuthController@postLogin');
 Route::get('admin/logout', 'Auth\AuthController@getLogout');
 Route::get('/adminpanel', ['middleware' => 'auth', 'uses' => 'AdminPanelController@showAdminPanel']);
-Route::get('/adminpanel/projects/{id?}/{status?}/{country?}', 'AdminPanelController@getData');
+Route::get('/adminpanel/projects/{id}/{status}/{country}', 'AdminPanelController@getData');

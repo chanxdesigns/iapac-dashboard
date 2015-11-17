@@ -9,6 +9,7 @@ use Dashboard\Http\Requests;
 use Dashboard\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 
 class AdminPanelController extends Controller
 {
@@ -34,7 +35,8 @@ class AdminPanelController extends Controller
         return view('pages.adminpanel', compact('projectid','country'));
     }
 
-    public function getData ($id,$country,$status) {
-        echo $id,$country,$status;
+    public function getData ($id,$status,$country) {
+        $data = DB::table('resp_counters')->select('respid','projectid','Languageid','status','enddate')->where('projectid','=',$id)->where('Languageid','=',$country)->where('status','=',$status)->get();
+        return json_encode($data);
     }
 }
