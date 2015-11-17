@@ -92,7 +92,7 @@ $(document).ready(function () {
     $("#submitlink").click(function () {
         var url;
         if (projectid !== "null" && status !== "null" && country !== "null") {
-            url = "http://localhost:8000/adminpanel/projects/"+projectid+'/'+status+'/'+country;
+            url = "http://dashboard.i-apaconline.com/adminpanel/projects/"+projectid+'/'+status+'/'+country;
             console.log(url);
         } else {
             if (projectid === "null") {
