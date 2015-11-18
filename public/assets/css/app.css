@@ -129,4 +129,9 @@ body {
 .resp-data th {
   width: 200px; }
 
+.delete {
+  margin-bottom: 20px; }
+  .delete .badge {
+    margin-right: 5px; }
+
 /*# sourceMappingURL=app.css.map */

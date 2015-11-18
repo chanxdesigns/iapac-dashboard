@@ -1,4 +1,19 @@
 $(document).ready(function () {
+
+    /**
+     * Utilities for using in various methods
+     * Modal
+     */
+
+    //Show Modal form
+    function showModal (classname,msg) {
+        var elem = $(classname);
+        elem.find(".modal-body p").remove();
+        elem.find(".modal-body").append(
+            "<p>"+msg+"</p>"
+        )
+    }
+
     var windowHeight = $(window).height() - 200;
     function resizeTop () {
         $(".top-banner").css({
@@ -62,37 +77,39 @@ $(document).ready(function () {
     /*-------------------------------------------------------
      *  Admin Menu
      */
-        var projectid,status,country;
+    var projectid,status,country;
 
-        projectid = $(".projectid select").val();
-        status = $(".status select").val();
-        country = $(".country select").val();
+    projectid = $(".projectid select").val();
+    status = $(".status select").val();
+    country = $(".country select").val();
 
-        $('.admin-panel .projectid').change(function (){
-            var $this = $(this);
-            projectid = $this.find('select').val();
-            console.log(projectid)
-        });
+    $('.admin-panel .projectid').change(function (){
+        var $this = $(this);
+        projectid = $this.find('select').val();
+        console.log(projectid)
+    });
 
-        $('.admin-panel .status').change(function (){
-            var $this = $(this);
-            status = $this.find('select').val();
-            console.log(status);
-        });
+    $('.admin-panel .status').change(function (){
+        var $this = $(this);
+        status = $this.find('select').val();
+        console.log(status);
+    });
 
-        $('.admin-panel .country').change(function (){
-            var $this = $(this);
-            country = $this.find('select').val();
-            console.log(country);
-        });
+    $('.admin-panel .country').change(function (){
+        var $this = $(this);
+        country = $this.find('select').val();
+        console.log(country);
+    });
 
-    /**
-     * Query Respondents Data
+    /**-------------------
+     * REPL time for respondents list and data
      */
-    $("#submitlink").click(function () {
+
+    // Make URL to send request through
+    function makeUrl () {
         var url;
         if (projectid !== "null" && status !== "null" && country !== "null") {
-            url = "http://dashboard.i-apaconline.com/adminpanel/projects/"+projectid+'/'+status+'/'+country;
+            url = "http://"+location.host+"/adminpanel/projects/"+projectid+'/'+status+'/'+country;
             console.log(url);
         } else {
             if (projectid === "null") {
@@ -102,31 +119,134 @@ $(document).ready(function () {
             } else if (status === "null") {
                 alert("Please select status !")
             }
-            return;
         }
+        return url;
+    }
 
-        /**
-         * Send the database query via Ajax and get JSON results
-         */
+    //Populate HTML table
+    function populateHtml (data) {
+        $(".resp-data-lists").remove();
+        for (var i = 0; i < data.length; i++) {
+            $(".resp-data table tbody").append(
+                "<tr class='resp-data-lists'>" +
+                "<td><input type='checkbox' class='checkbox' value='"+ data[i].respid +"'></td>" +
+                "<td>"+data[i].respid+"</td>" +
+                "<td>"+data[i].projectid+"</td>" +
+                "<td>"+data[i].Languageid+"</td>" +
+                "<td>"+data[i].status+"</td>" +
+                "<td>"+data[i].enddate+"</td>" +
+                "</tr>"
+            )
+        }
+    }
 
+    $("#submitlink").click(function () {
+        //Get URL
+        var url = makeUrl();
+        //Send the database query via Ajax and get JSON results
         $.ajax(url,{
             dataType: 'json'
         }).done(function (data) {
-            console.log(data);
-            $(".resp-data-lists").remove();
-            for (var i = 0; i < data.length; i++) {
-                $(".resp-data table tbody").append(
-                    "<tr class='resp-data-lists'>" +
-                    "<td><input type='checkbox' value='"+ data[i].respid +"'></td>" +
-                    "<td>"+data[i].respid+"</td>" +
-                    "<td>"+data[i].projectid+"</td>" +
-                    "<td>"+data[i].Languageid+"</td>" +
-                    "<td>"+data[i].status+"</td>" +
-                    "<td>"+data[i].enddate+"</td>" +
-                    "</tr>"
-                )
-            }
+            populateHtml(data);
         })
-    })
+    });
 
+    /**---------------------------------------------------
+     * Delete Items from database
+     */
+
+    //Create a array to hold the array of items
+    var check_value = [];
+    //Add/Remove items from the array on click
+    $(document).on("click", ".checkbox", function () {
+        var $this = $(this);
+        var val = $this.val();
+        if ($this.prop("checked")) {
+            if ($.inArray(val,check_value) === -1) {
+                check_value.push(val);
+            }
+        } else {
+            if ($.inArray(val,check_value) > -1) {
+                var index = $.inArray(val,check_value);
+                check_value.splice(index,1);
+            }
+        }
+        //Make the Delete Button
+        makeDeleteButton(check_value);
+    });
+
+    //Hide the button by default on load
+    $(".delete").hide();
+    //The make delete button function
+    function makeDeleteButton (check_value) {
+        var elem = $(".delete");
+        if (check_value.length > 0) {
+            var count = check_value.length;
+            elem.show();
+            $(".badge").remove();
+            elem.prepend(
+                "<span class='badge'>" + count + "</span>"
+            );
+        } else {
+            elem.hide();
+        }
+    }
+
+
+    //Delete the list/lists on click
+    $(document).on("click", ".delete", deleteItem);
+
+    function deleteItem () {
+        //Message for modal
+        var msg = "You are about to delete "+check_value.length+" items.";
+        //
+        var url = "http://"+location.host+"/adminpanel/projects/delete/";
+        showModal(".delete-modal",msg);
+
+        $(document).on('click', '.delete-modal .yes', function () {
+            $('.delete-modal').hide();
+            $('.fade').hide();
+            //Get the CSRF token for POST method authentication
+            var token = $("meta[name='token']").attr("content");
+            //JSONify the data
+            var data = JSON.stringify(check_value);
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: data,
+                contentType: 'application/json',
+                headers: {
+                    'X-CSRF-TOKEN': token
+                }
+            }).done(function (data) {
+                if (data > 0) {
+                    $(".resp-data").before(function () {
+                        //Check and remove alert element if any is there
+                        $('.alert').remove();
+                        //Re-add the alert element with new data
+                        return "<div class='alert alert-success' role='alert' data-dismiss='alert'>" + data + " record successfully deleted.</div>";
+                    });
+                    //Get the URL back
+                    var url = makeUrl();
+                    //AJAX through the respondent data
+                    $.ajax({
+                        url: url,
+                        dataType: 'json'
+                    }).done(function (data) {
+                        //Populate HTML table
+                        populateHtml(data);
+                    })
+                } else {
+                    $(".resp-data").before(function () {
+                        //Check and remove alert element if any is there
+                        $('.alert').remove();
+                        //Re-add the alert element with new data
+                        return "<div class='alert alert-danger' role='alert' data-dismiss='alert'>Something is wrong. Nothing deleted</div>";
+                    })
+                }
+            });
+            check_value = [];
+            makeDeleteButton(check_value);
+        })
+    }
 });

@@ -6,6 +6,7 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <head>
     <meta charset="UTF-8">
+    <meta name="token" content="{{ csrf_token() }}">
     <title>@yield('pageTitle')</title>
 </head>
 

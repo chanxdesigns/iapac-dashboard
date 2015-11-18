@@ -39,4 +39,11 @@ class AdminPanelController extends Controller
         $data = DB::table('resp_counters')->select('respid','projectid','Languageid','status','enddate')->where('projectid','=',$id)->where('Languageid','=',$country)->where('status','=',$status)->get();
         return json_encode($data);
     }
+
+    public function deleteData (Request $request) {
+        $dataArray = $request->input();
+        //$dataArray = implode(",",$dataArray);
+        $result = DB::table('resp_counters')->whereIn('respid', $dataArray)->delete();
+        return $result;
+    }
 }

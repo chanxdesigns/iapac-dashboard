@@ -51,6 +51,26 @@
                 <button class="btn btn-primary" id="submitlink">Submit</button>
             </div>
             <div class="col-md-offset-4">
+                <!-- Modal Box for Delete Confirmation-->
+                <div class="modal fade bs-example-modal-sm delete-modal" tabindex="-1" role="dialog" aria-labelledby="deleteModal">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Do you really want to delete these items?</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p></p>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="pull-right">
+                                    <button class="btn btn-danger yes">Yes</button>
+                                    <button class="btn btn-primary" data-dismiss="modal">No</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-danger delete" data-toggle="modal" data-target=".bs-example-modal-sm">Delete</button>
                 <div class="resp-data">
                     <table class="table table-hover">
                         <thead>
@@ -63,9 +83,7 @@
                             <th>End Date</th>
                         </tr>
                         </thead>
-                        <tbody>
-
-                        </tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
             </div>
