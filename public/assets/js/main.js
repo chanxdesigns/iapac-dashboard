@@ -29,6 +29,14 @@ $(document).ready(function () {
     });
     resizeTop();
 
+    /**----------------------------------
+     * Tabs Switching
+     */
+    $(".nav-tabs a").click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+
     /**
      * Filter results by country
      * Count the number of rows displayed
@@ -86,19 +94,16 @@ $(document).ready(function () {
     $('.admin-panel .projectid').change(function (){
         var $this = $(this);
         projectid = $this.find('select').val();
-        console.log(projectid)
     });
 
     $('.admin-panel .status').change(function (){
         var $this = $(this);
         status = $this.find('select').val();
-        console.log(status);
     });
 
     $('.admin-panel .country').change(function (){
         var $this = $(this);
         country = $this.find('select').val();
-        console.log(country);
     });
 
     /**-------------------
@@ -110,7 +115,6 @@ $(document).ready(function () {
         var url;
         if (projectid !== "null" && status !== "null" && country !== "null") {
             url = "http://"+location.host+"/adminpanel/projects/"+projectid+'/'+status+'/'+country;
-            console.log(url);
         } else {
             if (projectid === "null") {
                 alert("Please select project id !")
@@ -124,23 +128,26 @@ $(document).ready(function () {
     }
 
     //Populate HTML table
-    function populateHtml (data) {
+    function populateHtml(data) {
         $(".resp-data-lists").remove();
+        $(".empty-data").remove();
         for (var i = 0; i < data.length; i++) {
             $(".resp-data table tbody").append(
                 "<tr class='resp-data-lists'>" +
-                "<td><input type='checkbox' class='checkbox' value='"+ data[i].respid +"'></td>" +
-                "<td>"+data[i].respid+"</td>" +
-                "<td>"+data[i].projectid+"</td>" +
-                "<td>"+data[i].Languageid+"</td>" +
-                "<td>"+data[i].status+"</td>" +
-                "<td>"+data[i].enddate+"</td>" +
+                "<td><input type='checkbox' class='checkbox' value='" + data[i].respid + "'></td>" +
+                "<td>" + data[i].respid + "</td>" +
+                "<td>" + data[i].projectid + "</td>" +
+                "<td>" + data[i].Languageid + "</td>" +
+                "<td>" + data[i].status + "</td>" +
+                "<td>" + data[i].enddate + "</td>" +
                 "</tr>"
             )
         }
     }
 
     $("#submitlink").click(function () {
+        //Empty the check value data
+        check_value = [];
         //Get URL
         var url = makeUrl();
         //Send the database query via Ajax and get JSON results
@@ -199,54 +206,54 @@ $(document).ready(function () {
     function deleteItem () {
         //Message for modal
         var msg = "You are about to delete "+check_value.length+" items.";
+        showModal(".delete-modal",msg);
+    }
+
+    $(document).on('click', '.delete-modal .yes', function () {
         //
         var url = "http://"+location.host+"/adminpanel/projects/delete";
-        showModal(".delete-modal",msg);
-
-        $(document).on('click', '.delete-modal .yes', function () {
-            $('.delete-modal').hide();
-            $('.fade').hide();
-            //Get the CSRF token for POST method authentication
-            var token = $("meta[name='token']").attr("content");
-            //JSONify the data
-            var data = JSON.stringify(check_value);
-            $.ajax({
-                url: url,
-                type: 'POST',
-                data: data,
-                contentType: 'application/json',
-                headers: {
-                    'X-CSRF-TOKEN': token
-                }
-            }).done(function (data) {
-                if (data > 0) {
-                    $(".resp-data").before(function () {
-                        //Check and remove alert element if any is there
-                        $('.alert').remove();
-                        //Re-add the alert element with new data
-                        return "<div class='alert alert-success' role='alert' data-dismiss='alert'>" + data + " record successfully deleted.</div>";
-                    });
-                    //Get the URL back
-                    var url = makeUrl();
-                    //AJAX through the respondent data
-                    $.ajax({
-                        url: url,
-                        dataType: 'json'
-                    }).done(function (data) {
-                        //Populate HTML table
-                        populateHtml(data);
-                    })
-                } else {
-                    $(".resp-data").before(function () {
-                        //Check and remove alert element if any is there
-                        $('.alert').remove();
-                        //Re-add the alert element with new data
-                        return "<div class='alert alert-danger' role='alert' data-dismiss='alert'>Something is wrong. Nothing deleted</div>";
-                    })
-                }
-            });
-            check_value = [];
-            makeDeleteButton(check_value);
-        })
-    }
+        //Get the CSRF token for POST method authentication
+        var token = $("meta[name='token']").attr("content");
+        //JSONify the data
+        var data = JSON.stringify(check_value);
+        console.log(data);
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: data,
+            contentType: 'application/json',
+            headers: {
+                'X-CSRF-TOKEN': token
+            }
+        }).done(function (data) {
+            console.log(data);
+            if (data > 0) {
+                $(".resp-data").before(function () {
+                    //Check and remove alert element if any is there
+                    $('.alert').remove();
+                    //Re-add the alert element with new data
+                    return "<div class='alert alert-success fade in' role='alert' data-dismiss='alert'><i class='iapac iapac-info-circle'></i> Selected record successfully deleted.</div>";
+                });
+                //Get the URL back
+                var url = makeUrl();
+                //AJAX through the respondent data
+                $.ajax({
+                    url: url,
+                    dataType: 'json'
+                }).done(function (data) {
+                    //Populate HTML table
+                    populateHtml(data);
+                })
+            } else {
+                $(".resp-data").before(function () {
+                    //Check and remove alert element if any is there
+                    $('.alert').remove();
+                    //Re-add the alert element with new data
+                    return "<div class='alert alert-danger fade in' role='alert' data-dismiss='alert'><i class='iapac iapac-times-circle'></i> Something is wrong. Nothing deleted</div>";
+                })
+            }
+        });
+        check_value = [];
+        makeDeleteButton(check_value);
+    })
 });
