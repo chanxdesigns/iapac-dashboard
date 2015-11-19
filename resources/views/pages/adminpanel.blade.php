@@ -72,7 +72,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <div class="pull-right">
-                                            <button class="btn btn-danger yes">Yes</button>
+                                            <button class="btn btn-danger yes" data-dismiss="modal">Yes</button>
                                             <button class="btn btn-primary" data-dismiss="modal">No</button>
                                         </div>
                                     </div>
