@@ -200,7 +200,7 @@ $(document).ready(function () {
         //Message for modal
         var msg = "You are about to delete "+check_value.length+" items.";
         //
-        var url = "http://"+location.host+"/adminpanel/projects/delete/";
+        var url = "http://"+location.host+"/adminpanel/projects/delete";
         showModal(".delete-modal",msg);
 
         $(document).on('click', '.delete-modal .yes', function () {
