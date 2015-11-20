@@ -148,13 +148,24 @@ $(document).ready(function () {
     $("#submitlink").click(function () {
         //Empty the check value data
         check_value = [];
+        makeDeleteButton(check_value);
         //Get URL
         var url = makeUrl();
         //Send the database query via Ajax and get JSON results
         $.ajax(url,{
             dataType: 'json'
         }).done(function (data) {
-            populateHtml(data);
+            if (data.length > 0) {
+                $("#misentry").remove();
+                populateHtml(data);
+            } else {
+                $(".resp-data-lists").remove();
+                $(".empty-data").remove();
+                $("#misentry").remove();
+                $(".resp-data table").after(
+                    "<div class='alert alert-danger fade in' id='misentry' data-dismiss='alert'>Hey yo!! Somethings wrong, either the data is empty or you have selected the wrong query</div>"
+                )
+            }
         })
     });
 
@@ -169,10 +180,12 @@ $(document).ready(function () {
         var $this = $(this);
         var val = $this.val();
         if ($this.prop("checked")) {
+            $this.parents(".resp-data-lists").css("background","#ff9999");
             if ($.inArray(val,check_value) === -1) {
                 check_value.push(val);
             }
         } else {
+            $this.parents(".resp-data-lists").css("background","transparent");
             if ($.inArray(val,check_value) > -1) {
                 var index = $.inArray(val,check_value);
                 check_value.splice(index,1);

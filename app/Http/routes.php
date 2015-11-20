@@ -25,3 +25,4 @@ Route::get('admin/logout', 'Auth\AuthController@getLogout');
 Route::get('/adminpanel', ['middleware' => 'auth', 'uses' => 'AdminPanelController@showAdminPanel']);
 Route::get('/adminpanel/projects/{id}/{status}/{country}', 'AdminPanelController@getData');
 Route::post('/adminpanel/projects/delete', 'AdminPanelController@deleteData');
+Route::post('/adminpanel/projects/create', 'CreateProjectController@createProject');

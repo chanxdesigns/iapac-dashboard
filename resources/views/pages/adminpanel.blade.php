@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="page-header">
-        <h1>Welcome to Admin Panel <small>{{Auth::user()->email}}</small></h1>
+        <p>ADMIN PANEL</p>
+        <h3>Welcome, <span>{{Auth::user()->email}}</span></h3>
     </div>
 
     <ul class="nav nav-tabs">
@@ -13,7 +14,7 @@
     <!-- Tab panes -->
     <div class="tab-content">
         <!-- Display Projects Data -->
-        <div role="tabpanel" class="tab-pane active" id="projects">
+        <div role="tabpanel" class="tab-pane active fade in" id="projects">
             <div class="admin-panel">
                 <div class="row">
                     <div class="col-md-3">
@@ -81,7 +82,7 @@
                         </div>
                         <button class="btn btn-danger delete" data-toggle="modal" data-target=".bs-example-modal-sm">Delete</button>
                         <div class="resp-data">
-                            <table class="table table-hover">
+                            <table class="table table-bordered">
                                 <thead>
                                 <tr>
                                     <th>Action</th>
@@ -102,6 +103,54 @@
         </div>
 
         <!-- Create new projects -->
-        <div role="tabpanel" class="tab-pane" id="create">Aw yu</div>
+        <div role="tabpanel" class="tab-pane" id="create">
+            <div class="create-project">
+                <div class="col-md-8">
+                    <div class="create-form">
+                        <form action="/adminpanel/projects/create" method="POST" id="create-project">
+                            {{ csrf_field() }}
+                            <div class="form-group">
+                                <label for="projectid">Project ID</label>
+                                <input class="form-control" name="projectid" type="text" id="projectid">
+                                <span id="helpBlock" class="help-block">Input your Project ID ex: PJAG555, MC241520D.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="project-desc">Project Description</label>
+                                <textarea class="form-control" rows="3" name="project-desc" id="project-desc"></textarea>
+                                <span id="helpBlock" class="help-block">Input a short description about your Project.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputcountry">Country</label>
+                                <select class="form-control" name="country" id="inputcountry">
+                                    <option value="null">Select a country</option>
+                                    <option value="Singapore">Singapore</option>
+                                    <option value="South Korea">South Korea</option>
+                                    <option value="India">India</option>
+                                    <option value="China">China</option>
+                                    <option value="Philippines">Philippines</option>
+                                    <option value="Vietnam">Vietnam</option>
+                                    <option value="Malaysia">Malaysia</option>
+                                    <option value="Japan">Japan</option>
+                                    <option value="Thailand">Thailand</option>
+                                    <option value="Indonesia">Indonesia</option>
+                                    <option value="UAE">UAE</option>
+                                </select>
+                                <span id="helpBlock" class="help-block">Select the country from the list.</span>
+                            </div>
+                            <div class="form-group">
+                                <div class="multi-input">
+                                    <label for="redirect-link">Redirect Link</label>
+                                    <input class="form-control" type="text" name="complete" id="redirect-link complete" placeholder="Vendor complete link">
+                                    <input class="form-control" type="text" name="terminate" id="redirect-link terminate" placeholder="Vendor screenout link">
+                                    <input class="form-control" type="text" name="quotafull" id="redirect-link quotafull" placeholder="Vendor quotafull link">
+                                    <span id="helpBlock" class="help-block">Input the Redirect Link provided by the vendor.</span>
+                                </div>
+                            </div>
+                            <input type="submit" value="Create Project" class="btn btn-success">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     @stop
