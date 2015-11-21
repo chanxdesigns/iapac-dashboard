@@ -2,6 +2,7 @@
 
 namespace Dashboard\Http\Controllers;
 
+use Dashboard\ProjectsList;
 use Illuminate\Http\Request;
 
 use Dashboard\Http\Requests;
@@ -16,7 +17,11 @@ class CreateProjectController extends Controller
 
     // This Method will create new project and set redirects for individual country and project..
     public function createProject (Request $request) {
-        $request->input();
-
+        $post_data = $request->input();
+        if (count($post_data) > 0) {
+            $project = new ProjectsList();
+            $project->{'Project ID'}= "Something";
+            $project->save();
+        }
     }
 }
