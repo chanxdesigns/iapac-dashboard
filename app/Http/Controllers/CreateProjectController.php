@@ -34,7 +34,7 @@ class CreateProjectController extends Controller
                 $project->save();
             }
         } else {
-            return view("pages.regcomplete");
+            return view("pages.adminpanel");
         }
         return view("pages.regcomplete", compact('error'));
     }
