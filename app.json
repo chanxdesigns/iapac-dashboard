@@ -1,0 +1,13 @@
+{
+  "name": "iapac-dashboard",
+  "scripts": {
+  },
+  "env": {
+    "PGSTUDIO_URL": "http://localhost:8080/heroku/authorize",
+    "CLEARDB_DATABASE_URL": "mysql://b713979cda5038:5fc385fb@us-cdbr-iron-east-03.cleardb.net/heroku_a1bb05bdd3a2e87?reconnect=true"
+  },
+  "addons": [
+    "cleardb",
+    "pgstudio"
+  ]
+}
