@@ -16,6 +16,7 @@ class CreateProjectController extends Controller
 
     // This Method will create new project and set redirects for individual country and project..
     public function createProject (Request $request) {
-        var_dump($request->input());
+        $request->input();
+
     }
 }
