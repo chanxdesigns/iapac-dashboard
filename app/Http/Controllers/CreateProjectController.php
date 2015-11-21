@@ -18,10 +18,24 @@ class CreateProjectController extends Controller
     // This Method will create new project and set redirects for individual country and project..
     public function createProject (Request $request) {
         $post_data = $request->input();
-        if (count($post_data) > 0) {
-            $project = new ProjectsList();
-            $project->{'Project ID'}= "Something";
-            $project->save();
+        $error = 0;
+        if (isset($post_data) && !empty($post_data)) {
+            $projectid = ProjectsList::where('Project ID',$post_data['projectid'])->count();
+            if ($projectid > 0) {
+                $error = 1;
+            } else {
+                $project = new ProjectsList();
+                $project->{'Project ID'} = $post_data['projectid'];
+                $project->About = $post_data['project-desc'];
+                $project->Country = $post_data['country'];
+                $project->C_Link = $post_data['complete'];
+                $project->T_Link = $post_data['terminate'];
+                $project->Q_Link = $post_data['quotafull'];
+                $project->save();
+            }
+        } else {
+            return view("pages.regcomplete");
         }
+        return view("pages.regcomplete", compact('error'));
     }
 }
