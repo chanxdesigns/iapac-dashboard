@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class DeleteTable extends Migration
+class AddTimestampForProjectsList extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,9 @@ class DeleteTable extends Migration
      */
     public function up()
     {
-        DB::table('resp_counters')->delete();
+        Schema::table('projects_list', function (Blueprint $table) {
+           $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +24,6 @@ class DeleteTable extends Migration
      */
     public function down()
     {
-        //
+        //Schema::dropColumn('timestamps');
     }
 }

@@ -146,7 +146,7 @@
                                     <span id="helpBlock" class="help-block">Input the Redirect Link provided by the vendor.</span>
                                 </div>
                             </div>
-                            <input type="submit" value="Create Project" class="btn btn-success">
+                            <input type="submit" name="submit" value="Create Project" class="btn btn-success">
                         </form>
                     </div>
                 </div>
