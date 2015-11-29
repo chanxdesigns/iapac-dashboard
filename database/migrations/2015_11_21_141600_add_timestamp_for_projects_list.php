@@ -14,7 +14,6 @@ class AddTimestampForProjectsList extends Migration
     {
         Schema::table('projects_list', function (Blueprint $table) {
            $table->timestamps();
-            $table->string("Country");
         });
     }
 
@@ -25,6 +24,6 @@ class AddTimestampForProjectsList extends Migration
      */
     public function down()
     {
-        //
+        //Schema::dropColumn('timestamps');
     }
 }
