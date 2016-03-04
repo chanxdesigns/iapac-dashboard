@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use Dashboard\Http\Requests;
 use Dashboard\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class CreateProjectController extends Controller
 {
@@ -20,6 +21,18 @@ class CreateProjectController extends Controller
     public function createProject (Request $request) {
         if ($request->isMethod('post')) {
             var_dump('yes');
+            DB::table('projects_list')->insert(
+                [
+                    'Project ID' => $request->projectid,
+                    'Country' => $request->country,
+                    'About' => $request->{'project-desc'},
+                    'Vendor' => $request->vendor,
+                    'C_Link' => $request->complete,
+                    'Q_Link' => $request->terminate,
+                    'T_Link' => $request->quotafull
+                ]
+            );
+            /**
             ProjectsList::create([
                 'Project ID' => $request->projectid,
                 'Country' => $request->country,
@@ -29,6 +42,7 @@ class CreateProjectController extends Controller
                 'Q_Link' => $request->terminate,
                 'T_Link' => $request->quotafull
             ]);
+             * **/
         }
     }
 }
