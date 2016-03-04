@@ -120,6 +120,11 @@
                                 <span id="helpBlock" class="help-block">Input a short description about your Project.</span>
                             </div>
                             <div class="form-group">
+                                <label for="vendor">Vendor</label>
+                                <input class="form-control" name="vendor" type="text" id="projectid">
+                                <span id="helpBlock" class="help-block">Input your Project Vendor name.</span>
+                            </div>
+                            <div class="form-group">
                                 <label for="inputcountry">Country</label>
                                 <select class="form-control" name="country" id="inputcountry">
                                     <option value="null">Select a country</option>
