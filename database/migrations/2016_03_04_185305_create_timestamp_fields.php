@@ -12,7 +12,7 @@ class CreateTimestampFields extends Migration
      */
     public function up()
     {
-        Scheme::table('projects_list', function (Blueprint $table) {
+        Schema::table('projects_list', function (Blueprint $table) {
             $table->timestamps();
         });
     }
@@ -24,7 +24,7 @@ class CreateTimestampFields extends Migration
      */
     public function down()
     {
-        Scheme::table('projects_list', function (Blueprint $table) {
+        Schema::table('projects_list', function (Blueprint $table) {
             $table->dropTimestamps();
         });
     }
