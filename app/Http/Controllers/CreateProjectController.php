@@ -20,7 +20,6 @@ class CreateProjectController extends Controller
     // This Method will create new project and set redirects for individual country and project..
     public function createProject (Request $request) {
         if ($request->isMethod('post')) {
-            var_dump('yes');
             DB::table('projects_list')->insert(
                 [
                     'Project ID' => $request->projectid,
@@ -32,17 +31,6 @@ class CreateProjectController extends Controller
                     'T_Link' => $request->quotafull
                 ]
             );
-            /**
-            ProjectsList::create([
-                'Project ID' => $request->projectid,
-                'Country' => $request->country,
-                'About' => $request->{'project-desc'},
-                'Vendor' => $request->vendor,
-                'C_Link' => $request->complete,
-                'Q_Link' => $request->terminate,
-                'T_Link' => $request->quotafull
-            ]);
-             * **/
         }
     }
 }
