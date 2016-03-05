@@ -7,7 +7,7 @@
 @section('content')
     <div class="container">
         <div class="top-banner">
-            <h3>Manage your respondents' project status.</h3>
+            <h3>Projects Management Dashboard</h3>
             <div class="status-button">
                 <div class="col-sm-4">
                     <a href="{{url('/completes')}}" class="success">Completes</a>
@@ -20,10 +20,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    @stop
-
-@section('statusButton')
-    <div class="container">
     </div>
     @stop
