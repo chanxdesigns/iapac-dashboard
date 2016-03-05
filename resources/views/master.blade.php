@@ -39,9 +39,11 @@
     @yield('content')
 </div>
 
-@yield('statusButton')
-
 <footer>
+    <div class="container">
+        <p class="attestation">&copy; Copyright <a href="http://www.i-apaconline.com">I-Apac Online</a> {{\Carbon\Carbon::now()->year}}</p>
+        <p class="attestation">Email: <a href="mailto:info@i-apaconline.com">info@i-apaconline.com</a></p>
+    </div>
 </footer>
 
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
