@@ -10,11 +10,12 @@
         @if (count($arrDatas) > 0)
             <ul>
                 @for($i = 0; $i < count($arrDatas); $i++)
-                    <li>
+                    <li class="box">
                         <div class="list-item">
-                            <span class="label label-success">{{$dataCounts[$i]}} @if ($dataCounts[$i] === 1) {{$status}} @else {{$status.'s'}} @endif</span>
                             <a href="{{url(strtolower($arrDatas[$i]['status']),$arrDatas[$i]['projectid'])}}"><h3>{{$arrDatas[$i]['projectid']}}</h3></a>
-                            <p>{{$arrDatas[$i]['about']}}</p>
+                            @if (!empty($arrDatas[$i]['about'])) <p class="about">{{$arrDatas[$i]['about']}}</p> @endif
+                            <div class="circle"></div>
+                            <p class="counter"> &nbsp;{{$dataCounts[$i]}} @if ($dataCounts[$i] === 1) {{$status}} @else {{$status.'s'}} @endif</p>
                         </div>
                     </li>
                 @endfor

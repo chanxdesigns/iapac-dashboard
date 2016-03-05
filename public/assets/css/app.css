@@ -35,7 +35,8 @@ body {
     text-decoration: underline; }
 
 .projects-lists {
-  margin-top: 50px; }
+  margin-top: 50px;
+  color: #EEEEEE; }
   .projects-lists ul {
     padding: 0;
     list-style-type: none;
@@ -50,12 +51,46 @@ body {
       color: gray;
       margin-bottom: 30px; }
   .projects-lists .status-big-text {
-    color: black; }
+    color: #EEEEEE; }
+  .projects-lists li {
+    padding: 0;
+    margin-bottom: 20px; }
+    .projects-lists li.box {
+      padding: 50px 25px;
+      background: #191919;
+      border-radius: 4px; }
   .projects-lists .list-item {
     display: inline-block;
     vertical-align: top;
     width: 80%;
-    height: 100px; }
+    color: #DDD; }
+    .projects-lists .list-item a {
+      color: #03C9A9;
+      text-decoration: none; }
+      .projects-lists .list-item a:hover {
+        color: #FFFFFF; }
+      .projects-lists .list-item a h3 {
+        padding: 0;
+        margin: 0 0 10px 0; }
+    .projects-lists .list-item p {
+      margin: 0; }
+      .projects-lists .list-item p.counter {
+        display: inline-block;
+        margin-top: 30px;
+        font-family: "Open Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #545454; }
+      .projects-lists .list-item p.about {
+        color: gray;
+        font-weight: 400; }
+    .projects-lists .list-item .circle {
+      display: inline-block;
+      border-radius: 50%;
+      height: 10px;
+      width: 10px;
+      background: #545454; }
 
 /**
 .list-badge-wrapper {
@@ -79,24 +114,30 @@ body {
 }
 **/
 .show-results {
-  margin-top: 50px; }
+  margin-top: 50px;
+  color: #EEEEEE; }
   .show-results .table {
-    border-collapse: collapse; }
-    .show-results .table th {
-      background: #e6e6e6;
-      color: #333333;
+    border-collapse: collapse;
+    border-right: 1px solid #2e2e2e;
+    border-left: 1px solid #2e2e2e;
+    border-bottom: 1px solid #2e2e2e; }
+    .show-results .table tr:hover {
+      background: #2e2e2e; }
+    .show-results .table tr th {
+      background: #3b3b3b;
+      color: #eee;
+      border-color: #2e2e2e;
       border-top: none;
       height: 60px;
       vertical-align: middle;
       font-size: 15px;
       font-weight: 700;
       padding: 0 20px; }
-      .show-results .table th:last-of-type {
-        border-right: none; }
-    .show-results .table td {
+    .show-results .table tr td {
       height: 50px;
       vertical-align: middle;
-      color: #666666;
+      color: #eee;
+      border-color: #2e2e2e;
       font-weight: 400;
       padding: 0 20px; }
   .show-results .light-color {
@@ -107,7 +148,8 @@ body {
   .filter-table select {
     height: 30px;
     padding: 0 10px;
-    margin-left: 10px; }
+    margin-left: 10px;
+    color: #212121; }
 
 .login-form {
   margin-top: 30px; }
