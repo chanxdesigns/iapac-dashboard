@@ -43,12 +43,21 @@ body {
     }
     &.success {
       background: #2ECC71;
+      &:hover {
+        background: darken(#2ECC71,10%);
+      }
     }
     &.failed {
       background: #e74c3c;
+      &:hover {
+        background: darken(#e74c3c,10%);
+      }
     }
     &.warning {
       background: #e67e22;
+      &:hover {
+        background: darken(#e67e22,10%);
+      }
     }
   }
 }

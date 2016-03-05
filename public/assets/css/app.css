@@ -30,10 +30,16 @@ body {
       text-decoration: none; }
     .status-button a.success {
       background: #2ECC71; }
+      .status-button a.success:hover {
+        background: #25a25a; }
     .status-button a.failed {
       background: #e74c3c; }
+      .status-button a.failed:hover {
+        background: #d62c1a; }
     .status-button a.warning {
       background: #e67e22; }
+      .status-button a.warning:hover {
+        background: #bf6516; }
 
 .projects-lists {
   margin-top: 50px;
