@@ -303,4 +303,10 @@ body {
           color: #545454;
           font-size: 14px; }
 
+footer {
+  margin: 40px; }
+  footer .attestation {
+    text-align: center;
+    color: #545454; }
+
 /*# sourceMappingURL=app.css.map */

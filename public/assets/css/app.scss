@@ -402,3 +402,11 @@ body {
     }
   }
 }
+
+footer {
+  margin: 40px 0;
+  .attestation {
+    text-align: center;
+    color: lighten(#212121,20%);
+  }
+}
