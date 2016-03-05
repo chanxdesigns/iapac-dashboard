@@ -14,21 +14,6 @@ $(document).ready(function () {
         )
     }
 
-    var windowHeight = $(window).height() - 200;
-    function resizeTop () {
-        $(".top-banner").css({
-            "height": windowHeight
-        });
-        $(".top-banner h3").css({
-            "position": "relative",
-            "top": (windowHeight-200)/2
-        })
-    }
-    $(window).resize(function () {
-        resizeTop();
-    });
-    resizeTop();
-
     /**----------------------------------
      * Tabs Switching
      */

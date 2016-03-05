@@ -23,12 +23,12 @@
         <table id="results" class="table table-hover">
             <thead>
             <tr>
-                <th><i class="iapac iapac-sticky-note"></i> Project ID</th>
-                <th><i class="iapac iapac-list-ol"></i> Resp ID</th>
-                <th><i class="iapac iapac-check-square"></i> Status</th>
-                <th><i class="iapac iapac-language"></i> Country</th>
-                <th><i class="iapac iapac-internet-explorer"></i> IP Address</th>
-                <th><i class="iapac iapac-calendar"></i> End Date</th>
+                <th>Project ID</th>
+                <th>Resp ID</th>
+                <th>Status</th>
+                <th>Country</th>
+                <th>IP Address</th>
+                <th>End Date</th>
             </tr>
             </thead>
             <tbody id="results-body">

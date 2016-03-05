@@ -9,30 +9,31 @@ body {
   margin-bottom: 0; }
 
 .top-banner {
-  background: white; }
+  padding: 200px 0; }
   .top-banner h3 {
-    color: #111;
-    font-size: 50px;
+    color: #22A7F0;
+    font-size: 60px;
     text-align: center;
-    font-weight: 700;
-    font-family: Montserrat, sans-serif !important; }
+    font-weight: 300;
+    font-family: "Open Sans", sans-serif !important; }
 
 .status-button {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  height: 200px;
-  background: #111; }
+  margin-top: 100px;
+  text-align: center; }
   .status-button a {
-    display: block;
-    position: relative;
-    top: 88px;
-    text-align: center;
-    font-family: Montserrat, sans-serif;
-    font-size: 30px;
-    color: #FFFFFF;
-    text-decoration: underline; }
+    padding: 20px 50px;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase; }
+    .status-button a:hover {
+      text-decoration: none; }
+    .status-button a.success {
+      background: #2ECC71; }
+    .status-button a.failed {
+      background: #e74c3c; }
+    .status-button a.warning {
+      background: #e67e22; }
 
 .projects-lists {
   margin-top: 50px;
@@ -115,30 +116,38 @@ body {
 **/
 .show-results {
   margin-top: 50px;
-  color: #EEEEEE; }
+  color: #a1a1a1; }
+  .show-results select#country {
+    border-radius: 4px;
+    background: #191919;
+    color: #a1a1a1;
+    border: none;
+    height: 40px;
+    vertical-align: middle; }
   .show-results .table {
     border-collapse: collapse;
-    border-right: 1px solid #2e2e2e;
-    border-left: 1px solid #2e2e2e;
-    border-bottom: 1px solid #2e2e2e; }
+    border-right: 1px solid #191919;
+    border-left: 1px solid #191919;
+    border-bottom: 1px solid #191919; }
     .show-results .table tr:hover {
       background: #2e2e2e; }
     .show-results .table tr th {
-      background: #3b3b3b;
-      color: #eee;
-      border-color: #2e2e2e;
-      border-top: none;
+      background: #191919;
+      color: #22A7F0;
+      border: none;
       height: 60px;
       vertical-align: middle;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
-      padding: 0 20px; }
+      padding: 0 20px;
+      text-transform: uppercase; }
     .show-results .table tr td {
       height: 50px;
       vertical-align: middle;
-      color: #eee;
-      border-color: #2e2e2e;
+      color: #7f7f7f;
+      border-color: #191919;
       font-weight: 400;
+      font-family: "Montserrat";
       padding: 0 20px; }
   .show-results .light-color {
     color: gray; }
