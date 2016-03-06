@@ -7,14 +7,15 @@
     </div>
 
     <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="#projects">View Projects</a></li>
+        <li role="presentation" class="active"><a href="#responses">View Responses</a></li>
+        <li role="presentation" id="pullprojects"><a href="#viewprojects">View Projects</a></li>
         <li role="presentation"><a href="#create">Create Project</a></li>
     </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
         <!-- Display Projects Data -->
-        <div role="tabpanel" class="tab-pane active fade in" id="projects">
+        <div role="tabpanel" class="tab-pane active fade in" id="responses">
             <div class="admin-panel">
                 <div class="row">
                     <div class="col-md-3">
@@ -102,6 +103,21 @@
             </div>
         </div>
 
+        <!-- View Available Projects -->
+        <div role="tabpanel" class="tab-pane" id="viewprojects">
+            <div class="view-projects">
+                <div class="col-md-12">
+                    <ul>
+                        <li>
+                            <span class="right">X</span>
+                            <h3>Project ID</h3>
+                            <p>Project about. Lets see who can make things out</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <!-- Create new projects -->
         <div role="tabpanel" class="tab-pane" id="create">
             <div class="create-project">
@@ -115,8 +131,8 @@
                                 <span id="helpBlock" class="help-block">Input your Project ID ex: PJAG555, MC241520D.</span>
                             </div>
                             <div class="form-group">
-                                <label for="project-desc">Project Description</label>
-                                <textarea class="form-control" rows="3" name="project-desc" id="project-desc"></textarea>
+                                <label for="project_desc">Project Description</label>
+                                <textarea class="form-control" rows="3" name="project_desc" id="project_desc"></textarea>
                                 <span id="helpBlock" class="help-block">Input a short description about your Project.</span>
                             </div>
                             <div class="form-group">

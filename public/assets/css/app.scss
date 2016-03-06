@@ -59,6 +59,12 @@ body {
         background: darken(#e67e22,10%);
       }
     }
+    &.info {
+      background: #3498db;
+      &:hover{
+        background: darken(#3498db,10%);
+      }
+    }
   }
 }
 
@@ -347,6 +353,21 @@ body {
   }
 }
 
+//View Projects
+.view-projects {
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    li {
+      margin: 20px 0;
+      padding: 40px 10px;
+      background: #191919;
+    }
+  }
+}
+
+//Create Project
 .create-project {
   margin-top: 40px;
   .create-form {
@@ -397,6 +418,42 @@ body {
             color: lighten($midnightblue,20%);
             font-size: 14px;
           }
+        }
+      }
+    }
+  }
+}
+
+.create-response {
+  text-align: center;
+  padding: 100px 0;
+  .failed {
+    color: #e74c3c;
+  }
+  .success {
+    color: #2ECC71;
+  }
+  table {
+    display: block;
+    text-align: left;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    tr {
+      color: lighten(#212121, 30%);
+      transition: all 0.3s;
+      &:hover {
+        background: #191919;
+      }
+      td {
+        padding: 20px 15px;
+        width: 100%;
+        font-size: 15px;
+        transition: all 0.3s;
+        &:first-of-type {
+          font-weight: 700;
+          width: 40%;
         }
       }
     }

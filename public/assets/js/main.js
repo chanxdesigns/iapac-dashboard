@@ -1,4 +1,10 @@
 $(document).ready(function () {
+    /**
+     * @type {*|jQuery}
+     * Globally required variables
+     */
+    //Get the CSRF token for POST method authentication
+    var token = $("meta[name='token']").attr("content");
 
     /**
      * Utilities for using in various methods
@@ -210,8 +216,6 @@ $(document).ready(function () {
     $(document).on('click', '.delete-modal .yes', function () {
         //
         var url = "http://"+location.host+"/adminpanel/projects/delete";
-        //Get the CSRF token for POST method authentication
-        var token = $("meta[name='token']").attr("content");
         //JSONify the data
         var data = JSON.stringify(check_value);
         console.log(data);
@@ -254,4 +258,28 @@ $(document).ready(function () {
         check_value = [];
         makeDeleteButton(check_value);
     })
+
+    /**
+     * Pull Projects Lists from the DB
+     * Projects Editing
+     */
+    $('#pullprojects').click(function () {
+        var url = "http://"+location.host+"/adminpanel/projects";
+        $.ajax({
+            url: url,
+            type: 'GET',
+            contentType: 'application/json',
+            headers: {
+                'X-CSRF-TOKEN': token
+            }
+        }).done(function (data) {
+            console.log(data);
+        })
+    });
+
+    function makeProjectsList(data) {
+        for (var i = 0; i < data.length; i++) {
+
+        }
+    }
 });

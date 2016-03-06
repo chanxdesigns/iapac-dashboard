@@ -2,6 +2,7 @@
 
 namespace Dashboard\Http\Controllers;
 
+use Dashboard\ProjectsList;
 use Dashboard\RespCounter;
 use Illuminate\Http\Request;
 
@@ -45,5 +46,13 @@ class AdminPanelController extends Controller
         //$dataArray = implode(",",$dataArray);
         $result = DB::table('resp_counters')->whereIn('respid', $dataArray)->delete();
         return $result;
+    }
+
+    /**
+     * Get All Projects Details
+     */
+    public function getAllProjects () {
+        $data = ProjectsList::select('Project ID','About', 'Vendor', 'created_at', 'updated_at')->get();
+        return response()->json($data);
     }
 }
