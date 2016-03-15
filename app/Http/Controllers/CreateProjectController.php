@@ -24,7 +24,7 @@ class CreateProjectController extends Controller
     public function createProject (Request $request) {
         if ($request->isMethod('post')) {
             // Check If Project ID is already available in DB
-            $n = DB::table('projects_list')->where('Project ID','=',$request->projectid)->count();
+            $n = DB::table('projects_list')->where('Project ID','=',$request->projectid)->where('Vendor', '=', $request->vendor)->count();
             // If Project ID is not available then create project
             // Else display error
             if ($n === 0) {
