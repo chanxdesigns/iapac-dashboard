@@ -27,6 +27,10 @@
                     <td>{{$request->vendor}}</td>
                 </tr>
                 <tr>
+                    <td>Survey Link</td>
+                    <td>{{$request->survey_link}}</td>
+                </tr>
+                <tr>
                     <td>Complete Link:</td>
                     <td>{{$request->complete}}</td>
                 </tr>

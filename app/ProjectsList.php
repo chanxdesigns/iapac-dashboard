@@ -15,6 +15,7 @@ class ProjectsList extends Model
         'C_Link',
         'T_Link',
         'Q_Link',
+        'Survey Link',
         'Completes',
         'Terminates',
         'Quotafull'

@@ -97,10 +97,6 @@ $(document).ready(function () {
         country = $this.find('select').val();
     });
 
-    /**-------------------
-     * REPL time for respondents list and data
-     */
-
     // Make URL to send request through
     function makeUrl () {
         var url;
@@ -257,7 +253,17 @@ $(document).ready(function () {
         });
         check_value = [];
         makeDeleteButton(check_value);
-    })
+    });
+
+    /**Create project [Form Validation]
+    $('#create-project').keydown(function () {
+        var Validate = {
+            email: function () {},
+            redirectLink: function () {},
+            hideField: function () {}
+        };
+    });
+     **/
 
     /**
      * Pull Projects Lists from the DB

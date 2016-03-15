@@ -159,6 +159,11 @@
                                 <span id="helpBlock" class="help-block">Select the country from the list.</span>
                             </div>
                             <div class="form-group">
+                                <label for="survey_link">Survey Link</label>
+                                <input class="form-control" name="survey_link" type="text" id="survey_link">
+                                <span id="helpBlock" class="help-block">Input your Client Survey Link.</span>
+                            </div>
+                            <div class="form-group">
                                 <div class="multi-input">
                                     <label for="redirect-link">Redirect Link</label>
                                     <input class="form-control" type="text" name="complete" id="redirect-link complete" placeholder="Vendor complete link">

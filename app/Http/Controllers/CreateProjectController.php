@@ -36,7 +36,8 @@ class CreateProjectController extends Controller
                         'Vendor' => $request->vendor,
                         'C_Link' => $request->complete,
                         'Q_Link' => $request->quotafull,
-                        'T_Link' => $request->terminate
+                        'T_Link' => $request->terminate,
+                        'Survey Link' => $request->survey_link
                     ]
                 );
                 $status = 201;
