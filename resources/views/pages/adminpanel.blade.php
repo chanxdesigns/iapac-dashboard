@@ -107,13 +107,7 @@
         <div role="tabpanel" class="tab-pane" id="viewprojects">
             <div class="view-projects">
                 <div class="col-md-12">
-                    <ul>
-                        <li>
-                            <span class="right">X</span>
-                            <h3>Project ID</h3>
-                            <p>Project about. Lets see who can make things out</p>
-                        </li>
-                    </ul>
+                    <ul></ul>
                 </div>
             </div>
         </div>

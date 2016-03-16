@@ -55,4 +55,12 @@ class AdminPanelController extends Controller
         $data = ProjectsList::select('Project ID','About', 'Vendor', 'created_at', 'updated_at')->get();
         return response()->json($data);
     }
+
+    /**
+     * Get Individual Projects Details
+     */
+    public function viewProjectDetails ($projectid,$vendor) {
+        $data = ProjectsList::where('Project ID','=',$projectid)->where('Vendor','=',$vendor)->firstOrFail();
+        return view('pages.projectdetails',compact('data'));
+    }
 }

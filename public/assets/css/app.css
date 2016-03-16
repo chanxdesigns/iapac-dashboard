@@ -276,6 +276,43 @@ body {
     margin: 20px 0;
     padding: 40px 10px;
     background: #191919; }
+    .view-projects ul li a {
+      font-size: 22px;
+      font-weight: 400; }
+
+.view-single-projects {
+  padding: 100px 0; }
+  .view-single-projects .main-header {
+    text-align: center; }
+    .view-single-projects .main-header h3 {
+      margin: 0 0 15px 0;
+      font-weight: 700;
+      font-size: 25px;
+      color: #eee;
+      text-transform: uppercase; }
+      .view-single-projects .main-header h3 span {
+        color: #2ECC71; }
+    .view-single-projects .main-header p {
+      color: #eee;
+      font-size: 15px; }
+  .view-single-projects table {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px; }
+    .view-single-projects table tr td {
+      color: #919191;
+      font-weight: 400;
+      font-size: 15px;
+      padding: 15px 10px; }
+      .view-single-projects table tr td:first-of-type {
+        font-weight: 700;
+        width: 30%; }
+  .view-single-projects .status-button {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 60px; }
 
 .create-project {
   margin-top: 40px; }

@@ -11,7 +11,7 @@ use Dashboard\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Mockery\CountValidator\Exception;
 
-class CreateProjectController extends Controller
+class ProjectController extends Controller
 {
     //Protect From Unauthorized access
     public function __construct()
@@ -48,5 +48,37 @@ class CreateProjectController extends Controller
                 return view('pages.createstatus', ['status' => 403]);
             }
         }
+    }
+
+    //Edit Project Method
+    //Renders the Update Project view
+    public function editProject ($vendor, $projectid) {
+        $project = ProjectsList::where('Project ID','=',$projectid)->where('Vendor','=',$vendor)->firstOrFail();
+        return view('pages.updateproject',compact('project'));
+    }
+
+    //Main method to store the Updated Data
+    public function updateProject (Request $request, $vendor, $projectid) {
+        $result = ProjectsList::where('Project ID','=',$projectid)->where('Vendor','=',$vendor)->update(
+            [
+                'About' => $request->project_desc,
+                'Vendor' => $request->vendor,
+                'C_Link' => $request->complete,
+                'Q_Link' => $request->quotafull,
+                'T_Link' => $request->terminate,
+                'Survey Link' => $request->survey_link
+            ]
+        );
+        if ($result === 1) {
+            return redirect("/adminpanel/projects/$projectid/$request->vendor");
+        } else {
+            return response('Failed',400);
+        }
+    }
+
+    //Delete all responses associated with the Project ID
+    public function deleteByProjectId ($projectid) {
+        RespCounter::where('projectid','=',$projectid)->delete();
+        ProjectsList::where('Project ID','=',$projectid)->delete();
     }
 }

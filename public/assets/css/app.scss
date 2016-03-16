@@ -363,7 +363,57 @@ body {
       margin: 20px 0;
       padding: 40px 10px;
       background: #191919;
+      a {
+        font-size: 22px;
+        font-weight: 400;
+      }
     }
+  }
+}
+
+//View Individual Projects
+.view-single-projects {
+  padding: 100px 0;
+  .main-header {
+    text-align: center;
+    h3 {
+      margin: 0 0 15px 0;
+      font-weight: 700;
+      font-size: 25px;
+      color: #eee;
+      text-transform: uppercase;
+      span {
+        color: #2ECC71;
+      }
+    }
+    p {
+      color: #eee;
+      font-size: 15px;
+    }
+  }
+  table {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    tr {
+      td {
+        color: lighten(#444444, 30%);
+        font-weight: 400;
+        font-size: 15px;
+        padding: 15px 10px;
+        &:first-of-type {
+          font-weight: 700;
+          width: 30%;
+        }
+      }
+    }
+  }
+  .status-button {
+    width: 50%;
+    margin-right:auto;
+    margin-left:auto;
+    margin-top: 60px;
   }
 }
 

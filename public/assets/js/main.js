@@ -224,7 +224,6 @@ $(document).ready(function () {
                 'X-CSRF-TOKEN': token
             }
         }).done(function (data) {
-            console.log(data);
             if (data > 0) {
                 $(".resp-data").before(function () {
                     //Check and remove alert element if any is there
@@ -255,37 +254,45 @@ $(document).ready(function () {
         makeDeleteButton(check_value);
     });
 
-    /**Create project [Form Validation]
-    $('#create-project').keydown(function () {
-        var Validate = {
-            email: function () {},
-            redirectLink: function () {},
-            hideField: function () {}
-        };
-    });
-     **/
-
     /**
      * Pull Projects Lists from the DB
      * Projects Editing
      */
     $('#pullprojects').click(function () {
-        var url = "http://"+location.host+"/adminpanel/projects";
-        $.ajax({
-            url: url,
-            type: 'GET',
-            contentType: 'application/json',
-            headers: {
-                'X-CSRF-TOKEN': token
-            }
-        }).done(function (data) {
-            console.log(data);
-        })
+        var elemContainer = $(".view-projects ul");
+        if (!elemContainer.html()) {
+            var url = "http://"+window.location.host+"/adminpanel/projects";
+            $.ajax({
+                url: url,
+                type: 'GET',
+                contentType: 'application/json',
+                headers: {
+                    'X-CSRF-TOKEN': token
+                }
+            }).done(function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    elemContainer.append(
+                        "<li>" +
+                        "<a href='/adminpanel/projects/"+data[i]['Project ID']+"/"+data[i].Vendor+"'>"+data[i]['Project ID']+"</a>" +
+                        "<p>"+data[i].About+"</p>" +
+                        "</li>"
+                    )
+                }
+            })
+        } else {
+            //elemContainer.html("No data");
+        }
     });
 
-    function makeProjectsList(data) {
-        for (var i = 0; i < data.length; i++) {
-
+    /**
+     * Delete using Project ID all responses
+     *
+     */
+    $('.status-button .failed').click(function (e) {
+        var elem = $('.status-button p').text();
+        var m = confirm("Are you sure you want to delete: "+ elem +"?");
+        if (!m) {
+            e.preventDefault();
         }
-    }
+    })
 });
