@@ -43,7 +43,7 @@
                 <a href="{{route('projects.edit',['vendor' => $data->Vendor, 'projectid' => $data->{'Project ID'}])}}" class="info">Edit Project</a>
             </div>
             <div class="col-md-6">
-                <a href="{{route('delete.projectid',['projectid' => $data->{'Project ID'}])}}" class="failed">Delete Project</a>
+                <a href="{{route('delete.projectid',['projectid' => $data->{'Project ID'}])}}" class="failed" id="deletePrj">Delete Project</a>
             </div>
         </div>
     </div>

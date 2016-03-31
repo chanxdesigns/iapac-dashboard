@@ -275,6 +275,7 @@ $(document).ready(function () {
                         "<li>" +
                         "<a href='/adminpanel/projects/"+data[i]['Project ID']+"/"+data[i].Vendor+"'>"+data[i]['Project ID']+"</a>" +
                         "<p>"+data[i].About+"</p>" +
+                        "<h4>"+data[i].Vendor+"</h4>" +
                         "</li>"
                     )
                 }
@@ -288,7 +289,7 @@ $(document).ready(function () {
      * Delete using Project ID all responses
      *
      */
-    $('.status-button .failed').click(function (e) {
+    $('#deletePrj').click(function (e) {
         var elem = $('.status-button p').text();
         var m = confirm("Are you sure you want to delete: "+ elem +"?");
         if (!m) {
