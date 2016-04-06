@@ -60,7 +60,6 @@ class ShowResultsController extends Controller
                 $country[] = $data->Languageid;
             }
         }
-        var_dump($country);
         return view('pages.showresults', compact('projectid', 'rawdataset', 'country'));
     }
 }
