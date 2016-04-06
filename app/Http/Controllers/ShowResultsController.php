@@ -58,7 +58,7 @@ class ShowResultsController extends Controller
         foreach ($rawdataset as $data) {
             $country[] = $data->Languageid;
         }
-        $country = array_unique($country);
+        //$country = array_unique($country);
         var_dump($country);
         return view('pages.showresults', compact('projectid', 'rawdataset', 'country'));
     }
