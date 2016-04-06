@@ -10,12 +10,7 @@
         <br>
         <div class="filter-table pull-left">
             Filter by country:
-            <select id="country">
-                <option value="0" selected>Select a country</option>
-                @for ($i = 0; $i < count($country); $i++)
-                    <option value="{{$country[$i]}}">{{$country[$i]}}</option>
-                @endfor
-            </select>
+
         </div>
         <div class="total-count pull-right">
             <p>Total Number of rows: <span class="label label-primary"></span></p>
