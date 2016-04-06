@@ -33,7 +33,6 @@
             </thead>
             <tbody id="results-body">
             @for ($i = 0; $i < count($arrDatas); $i++)
-                {{var_dump($arrDatas[$i]['Languageid'])}}
                 <tr>
                     <td>{{$arrDatas[$i]['projectid']}}</td>
                     <td>{{$arrDatas[$i]['respid']}}</td>
