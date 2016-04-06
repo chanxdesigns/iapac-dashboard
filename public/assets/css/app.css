@@ -274,11 +274,24 @@ body {
   list-style-type: none; }
   .view-projects ul li {
     margin: 20px 0;
-    padding: 40px 10px;
+    padding: 40px 20px;
     background: #191919; }
     .view-projects ul li a {
       font-size: 22px;
-      font-weight: 400; }
+      font-weight: 400;
+      color: #03C9A9; }
+      .view-projects ul li a:hover {
+        color: #eee;
+        text-decoration: none; }
+    .view-projects ul li p {
+      color: #666666;
+      margin-top: 8px; }
+    .view-projects ul li h4 {
+      margin-top: 20px;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: #4c4c4c; }
 
 .view-single-projects {
   padding: 100px 0; }

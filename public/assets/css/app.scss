@@ -361,11 +361,27 @@ body {
     list-style-type: none;
     li {
       margin: 20px 0;
-      padding: 40px 10px;
+      padding: 40px 20px;
       background: #191919;
       a {
         font-size: 22px;
         font-weight: 400;
+        color: #03C9A9;
+        &:hover {
+          color: #eee;
+          text-decoration: none;
+        }
+      }
+      p {
+        color: lighten(#191919, 30%);
+        margin-top: 8px;
+      }
+      h4 {
+        margin-top: 20px;
+        font-family: "Open Sans", sans-serif;
+        font-weight:700;
+        font-size: 13px;
+        color: lighten(#191919, 20%);
       }
     }
   }
