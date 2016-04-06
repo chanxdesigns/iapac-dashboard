@@ -30,25 +30,25 @@ class ShowResultsController extends Controller
     public function showCompleteResults($projectid)
     {
         $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Complete')->get();
-        $arrDatas = $this->objectToArray($rawdataset);
         $country = [];
-        for ($i = 0; $i < count($arrDatas); $i++) {
-            $country[] = $arrDatas[$i]["Languageid"];
+        foreach ($rawdataset as $data) {
+            if (!in_array($data->Languageid, $country) && ($data->Languageid != "")) {
+                $country[] = $data->Languageid;
+            }
         }
-        $country = array_unique($country);
-        return view('pages.showresults', compact('projectid', 'arrDatas', 'country'));
+        return view('pages.showresults', compact('projectid', 'rawdataset', 'country'));
     }
 
     public function showTerminateResults($projectid)
     {
         $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Incomplete')->get();
-        $arrDatas = $this->objectToArray($rawdataset);
         $country = [];
-        for ($i = 0; $i < count($arrDatas); $i++) {
-            $country[] = $arrDatas[$i]["Languageid"];
+        foreach ($rawdataset as $data) {
+            if (!in_array($data->Languageid, $country) && ($data->Languageid != "")) {
+                $country[] = $data->Languageid;
+            }
         }
-        $country = array_unique($country);
-        return view('pages.showresults', compact('projectid', 'arrDatas', 'country'));
+        return view('pages.showresults', compact('projectid', 'rawdataset', 'country'));
     }
 
     public function showQuotafullResults($projectid)
