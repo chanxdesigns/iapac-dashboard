@@ -56,6 +56,7 @@ class ShowResultsController extends Controller
         $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Quotafull')->get();
         $arrDatas = $this->objectToArray($rawdataset);
         $country = [];
+        var_dump($arrDatas[1]['respid']);
         for ($i = 0; $i < count($arrDatas); $i++) {
             $country[] = $arrDatas[$i]["Languageid"];
         }
