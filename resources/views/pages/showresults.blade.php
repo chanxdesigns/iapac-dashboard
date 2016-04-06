@@ -32,16 +32,16 @@
             </tr>
             </thead>
             <tbody id="results-body">
-            @for ($i = 0; $i < count($arrDatas); $i++)
+            @foreach($rawdataset as $data)
                 <tr>
-                    <td>{{$arrDatas[$i]['projectid']}}</td>
-                    <td>{{$arrDatas[$i]['respid']}}</td>
-                    <td>{{$arrDatas[$i]['status']}}</td>
-                    <td>{{$arrDatas[$i]['Languageid']}}</td>
-                    <td>{{$arrDatas[$i]['IP']}}</td>
-                    <td>{{$arrDatas[$i]['enddate']}}</td>
+                    <td>{{$data->projectid}}</td>
+                    <td>{{$data->respid}}</td>
+                    <td>{{$data->status}}</td>
+                    <td>{{$data->Languageid}}</td>
+                    <td>{{$data->IP}}</td>
+                    <td>{{$data->enddate}}</td>
                 </tr>
-            @endfor
+                @endforeach
             </tbody>
         </table>
     </div>

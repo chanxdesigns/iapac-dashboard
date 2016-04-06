@@ -55,12 +55,11 @@ class ShowResultsController extends Controller
     {
         $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Quotafull')->get();
         $arrDatas = $this->objectToArray($rawdataset);
-        var_dump($rawdataset);
         $country = [];
         for ($i = 0; $i < count($arrDatas); $i++) {
             $country[] = $arrDatas[$i]["Languageid"];
         }
         $country = array_unique($country);
-        return view('pages.showresults', compact('projectid', 'arrDatas', 'country'));
+        return view('pages.showresults', compact('projectid', 'rawdataset', 'country'));
     }
 }
