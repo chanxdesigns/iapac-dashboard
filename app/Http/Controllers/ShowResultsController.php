@@ -60,6 +60,7 @@ class ShowResultsController extends Controller
             $country[] = $arrDatas[$i]["Languageid"];
         }
         $country = array_unique($country);
+        var_dump($country);
         return view('pages.showresults', compact('projectid', 'arrDatas', 'country'));
     }
 }
