@@ -54,12 +54,12 @@ class ShowResultsController extends Controller
     public function showQuotafullResults($projectid)
     {
         $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Quotafull')->get();
-        $arrDatas = $this->objectToArray($rawdataset);
         $country = [];
-        for ($i = 0; $i < count($arrDatas); $i++) {
-            $country[] = $arrDatas[$i]["Languageid"];
+        foreach ($rawdataset as $data) {
+            $country[] = $data->Languageid;
         }
         $country = array_unique($country);
+        var_dump($country);
         return view('pages.showresults', compact('projectid', 'rawdataset', 'country'));
     }
 }
