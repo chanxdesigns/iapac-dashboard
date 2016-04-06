@@ -56,7 +56,7 @@ class ShowResultsController extends Controller
         $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Quotafull')->get();
         $country = [];
         foreach ($rawdataset as $data) {
-            if (!in_array($data->Languageid, $country)) {
+            if (!in_array($data->Languageid, $country) && ($data->Languageid != "")) {
                 $country[] = $data->Languageid;
             }
         }
