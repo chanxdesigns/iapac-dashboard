@@ -33,9 +33,10 @@
             </tr>
             </thead>
             <tbody id="results-body">
+            <?php $counter = 1; ?>
             @foreach($rawdataset as $data)
                 <tr>
-                    <td>{{$data->counter += 1}}</td>
+                    <td>{{$counter}}</td>
                     <td>{{$data->projectid}}</td>
                     <td>{{$data->respid}}</td>
                     <td>{{$data->status}}</td>
@@ -43,6 +44,7 @@
                     <td>{{$data->IP}}</td>
                     <td>{{$data->enddate}}</td>
                 </tr>
+                <?php $counter++; ?>
                 @endforeach
             </tbody>
         </table>
