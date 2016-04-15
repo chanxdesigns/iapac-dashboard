@@ -23,6 +23,7 @@
         <table id="results" class="table table-hover">
             <thead>
             <tr>
+                <th>Counter</th>
                 <th>Project ID</th>
                 <th>Resp ID</th>
                 <th>Status</th>
@@ -33,7 +34,9 @@
             </thead>
             <tbody id="results-body">
             @foreach($rawdataset as $data)
+                <?php $country += 1; ?>
                 <tr>
+                    <td>{{$counter}}</td>
                     <td>{{$data->projectid}}</td>
                     <td>{{$data->respid}}</td>
                     <td>{{$data->status}}</td>
