@@ -54,7 +54,7 @@ class ProjectController extends Controller
     //Renders the Update Project view
     public function editProject ($vendor, $projectid, $country) {
         $project = ProjectsList::where('Project ID','=',$projectid)->where('Vendor','=',$vendor)->where('Country','=',$country)->firstOrFail();
-        var_dump($project);
+        //var_dump($project);
         return view('pages.updateproject',compact('project'));
     }
 
