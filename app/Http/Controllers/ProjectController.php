@@ -58,8 +58,8 @@ class ProjectController extends Controller
     }
 
     //Main method to store the Updated Data
-    public function updateProject (Request $request, $vendor, $projectid) {
-        $result = ProjectsList::where('Project ID','=',$projectid)->where('Vendor','=',$vendor)->update(
+    public function updateProject (Request $request, $vendor, $projectid, $country) {
+        $result = ProjectsList::where('Project ID','=',$projectid)->where('Vendor','=',$vendor)->where('Country','=',$country)->update(
             [
                 'About' => $request->project_desc,
                 'Vendor' => $request->vendor,
