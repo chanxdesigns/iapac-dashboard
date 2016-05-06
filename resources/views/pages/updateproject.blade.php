@@ -4,7 +4,7 @@
     <div class="create-project">
         <div class="col-md-8">
             <div class="create-form">
-                <form action="{{action('ProjectController@updateProject', ['projectid' => $project->{'Project ID'}, 'vendor' => $project->Vendor])}}" method="POST">
+                <form action="{{action('ProjectController@updateProject', ['projectid' => $project->{'Project ID'}, 'vendor' => $project->Vendor, 'country' => $project->Country])}}" method="POST">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="project_desc">Project Description</label>
