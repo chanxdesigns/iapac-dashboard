@@ -28,6 +28,6 @@ Route::get('/adminpanel/projects/{projectid}/{vendor}','AdminPanelController@vie
 Route::get('/adminpanel/projects/{id}/{status}/{country}', 'AdminPanelController@getData');
 Route::post('/adminpanel/projects/delete', 'AdminPanelController@deleteData');
 Route::post('/adminpanel/projects/create', 'ProjectController@createProject');
-Route::get('/adminpanel/{vendor}/{projectid}/edit', 'ProjectController@editProject')->name('projects.edit');
+Route::get('/adminpanel/{vendor}/{projectid}/{country}/edit', 'ProjectController@editProject')->name('projects.edit');
 Route::post('/adminpanel/{vendor}/{projectid}/update', 'ProjectController@updateProject')->name('projects.update');
 Route::get('/adminpanel/{projectid}/delete', 'ProjectController@deleteByProjectId')->name('delete.projectid');
