@@ -40,7 +40,7 @@
         <div class="status-button">
             <p style="display: none">{{$data->$projectid}}</p>
             <div class="col-md-6">
-                <a href="{{route('projects.edit',['vendor' => $data->Vendor, 'projectid' => $data->{'Project ID'}])}}" class="info">Edit Project</a>
+                <a href="{{route('projects.edit',['vendor' => $data->Vendor, 'projectid' => $data->{'Project ID'}, 'country' => $data->Country])}}" class="info">Edit Project</a>
             </div>
             <div class="col-md-6">
                 <a href="{{route('delete.projectid',['projectid' => $data->{'Project ID'}])}}" class="failed" id="deletePrj">Delete Project</a>
