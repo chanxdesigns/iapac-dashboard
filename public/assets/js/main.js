@@ -271,6 +271,7 @@ $(document).ready(function () {
                     'X-CSRF-TOKEN': token
                 }
             }).done(function (data) {
+                console.log(data);
                 for (var i = 0; i < data.length; i++) {
                     elemContainer.append(
                         "<li>" +
