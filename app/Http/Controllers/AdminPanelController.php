@@ -52,7 +52,7 @@ class AdminPanelController extends Controller
      * Get All Projects Details
      */
     public function getAllProjects () {
-        $data = ProjectsList::select('Project ID','About', 'Vendor', 'created_at', 'updated_at')->get();
+        $data = ProjectsList::select('Project ID','About', 'Vendor', 'created_at', 'updated_at')->distinct()->get();
         return response()->json($data);
     }
 
