@@ -256,6 +256,7 @@ $(document).ready(function () {
 
     /**
      * Pull Projects Lists from the DB
+     * And Display It for Viewing
      * Projects Editing
      */
     $('#pullprojects').click(function () {
