@@ -149,6 +149,10 @@
                                     <option value="Thailand">Thailand</option>
                                     <option value="Indonesia">Indonesia</option>
                                     <option value="UAE">UAE</option>
+                                    <option value="Jordan">Jordan</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="SA">South Africa</option>
+                                    <option value="KSA">Saudi Arabia</option>
                                 </select>
                                 <span id="helpBlock" class="help-block">Select the country from the list.</span>
                             </div>
