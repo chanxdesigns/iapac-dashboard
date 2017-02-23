@@ -29,6 +29,7 @@
                 <th>Status</th>
                 <th>Country</th>
                 <th>IP Address</th>
+                <th>Start Time</th>
                 <th>End Date</th>
             </tr>
             </thead>
@@ -42,6 +43,7 @@
                     <td>{{$data->status}}</td>
                     <td>{{$data->Languageid}}</td>
                     <td>{{$data->IP}}</td>
+                    <td>{{$data->starttime}}</td>
                     <td>{{$data->enddate}}</td>
                 </tr>
                 <?php $counter++; ?>

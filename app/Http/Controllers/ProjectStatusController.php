@@ -3,11 +3,6 @@
 namespace Dashboard\Http\Controllers;
 
 use Dashboard\RespCounter;
-use Illuminate\Http\Request;
-
-use Dashboard\Http\Requests;
-use Dashboard\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
 
 class ProjectStatusController extends Controller
 {
@@ -23,6 +18,7 @@ class ProjectStatusController extends Controller
                 'Languageid' => $data->Languageid,
                 'status' => $data->status,
                 'IP' => $data->IP,
+                "starttime" => $data->starttime,
                 'enddate' => $data->enddate
             );
         }
@@ -47,6 +43,7 @@ class ProjectStatusController extends Controller
                 'Languageid' => $data->Languageid,
                 'status' => $data->status,
                 'IP' => $data->IP,
+                "starttime" => $data->starttime,
                 'enddate' => $data->enddate
             );
         }
@@ -70,6 +67,7 @@ class ProjectStatusController extends Controller
                 'Languageid' => $data->Languageid,
                 'status' => $data->status,
                 'IP' => $data->IP,
+                "starttime" => $data->starttime,
                 'enddate' => $data->enddate
             );
         }
