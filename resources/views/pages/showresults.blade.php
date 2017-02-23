@@ -17,6 +17,7 @@
                 @endfor
             </select>
         </div>
+        &nbsp;<button type="button" class="btn btn-success" id="csv_download">Download as CSV</button>
         <div class="total-count pull-right">
             <p>Total Number of rows: <span class="label label-primary"></span></p>
         </div>

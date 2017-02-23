@@ -19,6 +19,7 @@ Route::get('incompletes', "ProjectStatusController@showTerminates");
 Route::get('incomplete/{projectid}', "ShowResultsController@showTerminateResults");
 Route::get('quotafull', "ProjectStatusController@showQuotafull");
 Route::get('quotafull/{projectid}', "ShowResultsController@showQuotafullResults");
+Route::get('download/{status}/{projectid}', "DownloadController@createCsv");
 Route::get('admin', 'Auth\AuthController@getLogin');
 Route::post('admin/login', 'Auth\AuthController@postLogin');
 Route::get('admin/logout', 'Auth\AuthController@getLogout');
