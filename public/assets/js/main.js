@@ -74,11 +74,9 @@ $(document).ready(function () {
     });
 
     // Download as CSV
-    $('#csv_download').click(function () {
-        var splitted_path = window.location.pathname.split('/'),
-            url = window.location.origin + '/download/' + splitted_path[1] + '/' + splitted_path[2];
-        $.get(url);
-    })
+    var splitted_path = window.location.pathname.split('/'),
+        url = window.location.origin + '/download/' + splitted_path[1] + '/' + splitted_path[2];
+    $('#csv_download').attr('href', url);
 
     /*-------------------------------------------------------
      *  Admin Menu
