@@ -31,6 +31,7 @@
                 <th>IP Address</th>
                 <th>Start Time</th>
                 <th>End Date</th>
+                <th>LOI (Seconds)</th>
             </tr>
             </thead>
             <tbody id="results-body">
@@ -45,6 +46,7 @@
                     <td>{{$data->IP}}</td>
                     <td>{{$data->starttime}}</td>
                     <td>{{$data->enddate}}</td>
+                    <td>{{\Carbon\Carbon::createFromTimestamp($data->enddate, 'Asia/Kolkata')->diffInSeconds(\Carbon\Carbon::createFromTimestamp($data->starttime, 'Asia/Kolkata'))}} Secs</td>
                 </tr>
                 <?php $counter++; ?>
                 @endforeach
