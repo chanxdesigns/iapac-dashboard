@@ -30,7 +30,7 @@
                 <th>Country</th>
                 <th>IP Address</th>
                 <th>Start Time</th>
-                <th>End Date</th>
+                <th>End Time</th>
                 <th>LOI (Seconds)</th>
             </tr>
             </thead>
@@ -44,8 +44,8 @@
                     <td>{{$data->status}}</td>
                     <td>{{$data->Languageid}}</td>
                     <td>{{$data->IP}}</td>
-                    <td>{{$data->starttime}}</td>
-                    <td>{{$data->enddate}}</td>
+                    <td>{{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$data->starttime)->toDayDateTimeString()}}</td>
+                    <td>{{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$data->enddate)->toDayDateTimeString()}}</td>
                     <td>{{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$data->enddate)->diffInSeconds(\Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$data->starttime))}} Secs</td>
                 </tr>
                 <?php $counter++; ?>
