@@ -44,9 +44,9 @@
                     <td>{{$data->status}}</td>
                     <td>{{$data->Languageid}}</td>
                     <td>{{$data->IP}}</td>
-                    <td>{{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$data->starttime)->toDayDateTimeString()}}</td>
-                    <td>{{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$data->enddate)->toDayDateTimeString()}}</td>
-                    <td>{{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$data->enddate)->diffInSeconds(\Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$data->starttime))}} Secs</td>
+                    <td>@if ($data->starttime) {{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$data->starttime)->toDayDateTimeString()}} @endif</td>
+                    <td>@if ($data->enddate) {{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$data->enddate)->toDayDateTimeString()}} @else {{$data->enddate}} @endif</td>
+                    <td>@if ($data->starttime) {{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$data->enddate)->diffInSeconds(\Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$data->starttime))}} @endif Secs</td>
                 </tr>
                 <?php $counter++; ?>
                 @endforeach

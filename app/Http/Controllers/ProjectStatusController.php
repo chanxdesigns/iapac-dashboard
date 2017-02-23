@@ -47,7 +47,6 @@ class ProjectStatusController extends Controller
                 'enddate' => $data->enddate
             );
         }
-        var_dump($arrDatas);
         $dataCounts = [];
         foreach ($rawDatas as $data) {
             $query = RespCounter::distinct()->select('*')->where('projectid', '=', $data->projectid)->where('status','=','Incomplete')->count();
