@@ -2,6 +2,7 @@
 
 namespace Dashboard\Http\Controllers;
 
+use Carbon\Carbon;
 use Dashboard\RespCounter;
 
 class ProjectStatusController extends Controller
@@ -27,7 +28,6 @@ class ProjectStatusController extends Controller
             $query = RespCounter::distinct()->select('*')->where('projectid', '=', $data->projectid)->where('status','=','Complete')->count();
             $dataCounts[] = $query;
         }
-
         return view('pages.projectstatus', compact('arrDatas','status', 'dataCounts'));
     }
 
