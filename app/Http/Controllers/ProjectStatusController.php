@@ -78,4 +78,76 @@ class ProjectStatusController extends Controller
         }
         return view('pages.projectstatus', compact('arrDatas','status', 'dataCounts'));
     }
+
+    public function showMobileTerm () {
+        $status = "Mobile Terminate";
+        $rawDatas = RespCounter::distinct()->select('*')->where('status','=','Mobile_Term')->groupBy('projectid')->get();
+        $arrDatas = [];
+        foreach($rawDatas as $data) {
+            $arrDatas[] = array(
+                'respid' => $data->respid,
+                'projectid' => $data->projectid,
+                'about' => $data->about,
+                'Languageid' => $data->Languageid,
+                'status' => $data->status,
+                'IP' => $data->IP,
+                "starttime" => $data->starttime,
+                'enddate' => $data->enddate
+            );
+        }
+        $dataCounts = [];
+        foreach ($rawDatas as $data) {
+            $query = RespCounter::distinct()->select('*')->where('projectid', '=', $data->projectid)->where('status','=','Mobile_Term')->count();
+            $dataCounts[] = $query;
+        }
+        return view('pages.projectstatus', compact('arrDatas','status', 'dataCounts'));
+    }
+
+    public function showSecurityTerm () {
+        $status = "Security Terminate";
+        $rawDatas = RespCounter::distinct()->select('*')->where('status','=','Security_Term')->groupBy('projectid')->get();
+        $arrDatas = [];
+        foreach($rawDatas as $data) {
+            $arrDatas[] = array(
+                'respid' => $data->respid,
+                'projectid' => $data->projectid,
+                'about' => $data->about,
+                'Languageid' => $data->Languageid,
+                'status' => $data->status,
+                'IP' => $data->IP,
+                "starttime" => $data->starttime,
+                'enddate' => $data->enddate
+            );
+        }
+        $dataCounts = [];
+        foreach ($rawDatas as $data) {
+            $query = RespCounter::distinct()->select('*')->where('projectid', '=', $data->projectid)->where('status','=','Security_Term')->count();
+            $dataCounts[] = $query;
+        }
+        return view('pages.projectstatus', compact('arrDatas','status', 'dataCounts'));
+    }
+
+    public function showDropOffs () {
+        $status = "Drop Off";
+        $rawDatas = RespCounter::distinct()->select('*')->where('status','=','Drop_Off')->groupBy('projectid')->get();
+        $arrDatas = [];
+        foreach($rawDatas as $data) {
+            $arrDatas[] = array(
+                'respid' => $data->respid,
+                'projectid' => $data->projectid,
+                'about' => $data->about,
+                'Languageid' => $data->Languageid,
+                'status' => $data->status,
+                'IP' => $data->IP,
+                "starttime" => $data->starttime,
+                'enddate' => $data->enddate
+            );
+        }
+        $dataCounts = [];
+        foreach ($rawDatas as $data) {
+            $query = RespCounter::distinct()->select('*')->where('projectid', '=', $data->projectid)->where('status','=','Drop_Off')->count();
+            $dataCounts[] = $query;
+        }
+        return view('pages.projectstatus', compact('arrDatas','status', 'dataCounts'));
+    }
 }

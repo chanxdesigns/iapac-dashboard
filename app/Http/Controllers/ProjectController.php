@@ -37,6 +37,7 @@ class ProjectController extends Controller
                         'C_Link' => $request->complete,
                         'Q_Link' => $request->quotafull,
                         'T_Link' => $request->terminate,
+                        'D_Link' => $request->dropoff,
                         'Survey Link' => $request->survey_link
                     ]
                 );

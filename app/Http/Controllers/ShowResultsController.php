@@ -51,6 +51,42 @@ class ShowResultsController extends Controller
         return view('pages.showresults', compact('projectid', 'rawdataset', 'country'));
     }
 
+    public function showMobileTermResults ($projectid)
+    {
+        $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Mobile_Term')->get();
+        $country = [];
+        foreach ($rawdataset as $data) {
+            if (!in_array($data->Languageid, $country) && ($data->Languageid != "")) {
+                $country[] = $data->Languageid;
+            }
+        }
+        return view('pages.showresults', compact('projectid', 'rawdataset', 'country'));
+    }
+
+    public function showSecurityTermResults ($projectid)
+    {
+        $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Security_Term')->get();
+        $country = [];
+        foreach ($rawdataset as $data) {
+            if (!in_array($data->Languageid, $country) && ($data->Languageid != "")) {
+                $country[] = $data->Languageid;
+            }
+        }
+        return view('pages.showresults', compact('projectid', 'rawdataset', 'country'));
+    }
+
+    public function showDropOffsResults ($projectid)
+    {
+        $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Drop_Off')->get();
+        $country = [];
+        foreach ($rawdataset as $data) {
+            if (!in_array($data->Languageid, $country) && ($data->Languageid != "")) {
+                $country[] = $data->Languageid;
+            }
+        }
+        return view('pages.showresults', compact('projectid', 'rawdataset', 'country'));
+    }
+
     public function showQuotafullResults($projectid)
     {
         $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Quotafull')->get();
