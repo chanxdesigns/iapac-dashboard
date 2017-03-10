@@ -27,6 +27,7 @@
                             <input class="form-control" type="text" name="complete" id="redirect-link complete" placeholder="Vendor complete link" value="{{$project->C_Link}}">
                             <input class="form-control" type="text" name="terminate" id="redirect-link terminate" placeholder="Vendor screenout link" value="{{$project->T_Link}}">
                             <input class="form-control" type="text" name="quotafull" id="redirect-link quotafull" placeholder="Vendor quotafull link" value="{{$project->Q_Link}}">
+                            <input class="form-control" type="text" name="dropoff" id="redirect-link dropoff" placeholder="Vendor drop off link" value="{{$project->D_Link}}">
                             <span id="helpBlock" class="help-block">Input the Redirect Link provided by the vendor or if Freelancer outsourced, leave it Blank.</span>
                         </div>
                     </div>
