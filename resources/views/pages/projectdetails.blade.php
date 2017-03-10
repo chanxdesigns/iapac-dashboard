@@ -36,6 +36,10 @@
                 <td>Quotafull Link:</td>
                 <td>{{$data->Q_Link}}</td>
             </tr>
+            <tr>
+                <td>Drop Off Link:</td>
+                <td>{{$data->D_Link}}</td>
+            </tr>
         </table>
         <div class="status-button">
             <p style="display: none">{{$data->$projectid}}</p>
