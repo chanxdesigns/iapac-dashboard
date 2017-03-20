@@ -41,4 +41,4 @@ Route::get('/adminpanel/{projectid}/delete', 'ProjectController@deleteByProjectI
 
 //
 
-Route::post('/getsite', 'GetSiteController@getSiteSource');
+Route::post('/getsite', ['middleware' => 'cors', 'uses' => 'GetSiteController@getSiteSource']);
