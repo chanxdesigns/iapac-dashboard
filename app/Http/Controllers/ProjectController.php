@@ -55,7 +55,6 @@ class ProjectController extends Controller
     //Renders the Update Project view
     public function editProject ($vendor, $projectid, $country) {
         $project = ProjectsList::where('Project ID','=',$projectid)->where('Vendor','=',$vendor)->where('Country','=',$country)->firstOrFail();
-        //var_dump($project);
         return view('pages.updateproject',compact('project'));
     }
 
@@ -72,7 +71,7 @@ class ProjectController extends Controller
             ]
         );
         if ($result === 1) {
-            return redirect("/adminpanel/projects/$projectid/$request->vendor");
+            return redirect("/adminpanel/projects/$projectid/$request->vendor/$country");
         } else {
             return response('Failed',400);
         }
