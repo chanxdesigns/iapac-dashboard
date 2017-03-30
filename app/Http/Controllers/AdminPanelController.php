@@ -52,15 +52,15 @@ class AdminPanelController extends Controller
      * Get All Projects Details
      */
     public function getAllProjects () {
-        $data = DB::table('projects_list')->select('Project ID','About', 'Vendor', 'created_at', 'updated_at')->distinct('Project ID')->get();
+        $data = DB::table('projects_list')->select('Project ID','About', 'Vendor', 'Country', 'created_at', 'updated_at')->distinct('Project ID')->get();
         return response()->json($data);
     }
 
     /**
      * Get Individual Projects Details
      */
-    public function viewProjectDetails ($projectid,$vendor) {
-        $data = ProjectsList::where('Project ID','=',$projectid)->where('Vendor','=',$vendor)->firstOrFail();
+    public function viewProjectDetails ($projectid,$vendor,$country) {
+        $data = ProjectsList::where('Project ID','=',$projectid)->where('Vendor','=',$vendor)->where('Country','=',$country)->firstOrFail();
         return view('pages.projectdetails',compact('data'));
     }
 }

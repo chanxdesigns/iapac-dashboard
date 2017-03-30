@@ -280,7 +280,8 @@ $(document).ready(function () {
                 for (var i = 0; i < data.length; i++) {
                     elemContainer.append(
                         "<li>" +
-                        "<a href='/adminpanel/projects/"+data[i]['Project ID']+"/"+data[i].Vendor+"'>"+data[i]['Project ID']+"</a>" +
+                        "<a href='/adminpanel/projects/" +data[i]['Project ID']+ "/" +data[i].Vendor+ "/" +data[i].Country+ "'>"+data[i]['Project ID']+"</a>" +
+                        "<p>"+data[i].Country+"</p>" +
                         "<p>"+data[i].About+"</p>" +
                         "<h4>"+data[i].Vendor+"</h4>" +
                         "</li>"
