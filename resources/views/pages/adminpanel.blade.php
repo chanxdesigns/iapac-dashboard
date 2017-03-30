@@ -139,6 +139,7 @@
                                 <select class="form-control" name="country" id="inputcountry">
                                     <option value="null">Select a country</option>
                                     <option value="Singapore">Singapore</option>
+                                    <option value="Hong Kong">Hong Kong</option>
                                     <option value="South Korea">South Korea</option>
                                     <option value="India">India</option>
                                     <option value="China">China</option>
