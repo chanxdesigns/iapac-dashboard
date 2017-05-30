@@ -154,6 +154,7 @@
                                     <option value="Australia">Australia</option>
                                     <option value="SA">South Africa</option>
                                     <option value="KSA">Saudi Arabia</option>
+                                    <option value="TW">Taiwan</option>
                                 </select>
                                 <span id="helpBlock" class="help-block">Select the country from the list.</span>
                             </div>
