@@ -41,7 +41,13 @@ class ShowResultsController extends Controller
      */
     public function showTerminateResults($projectid)
     {
-        $rawdataset = DB::table('resp_counters')->join('survey_prestart', 'projectid', '=', 'survey_prestart.project_id')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Incomplete')->get();
+        $rawdataset = collect(DB::table('resp_counters')
+            ->leftJoin('survey_prestart', 'resp_counters.respid', '=', 'survey_prestart.user_id')
+            ->where('resp_counters.status', 'Complete')
+            ->orderBy('resp_counters.enddate', 'ASC')
+            ->get())
+            ->unique('respid');
+
         $country = [];
         foreach ($rawdataset as $data) {
             if (!in_array($data->Languageid, $country) && ($data->Languageid != "")) {
@@ -59,7 +65,13 @@ class ShowResultsController extends Controller
      */
     public function showQuotafullResults($projectid)
     {
-        $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Quotafull')->get();
+        $rawdataset = collect(DB::table('resp_counters')
+            ->leftJoin('survey_prestart', 'resp_counters.respid', '=', 'survey_prestart.user_id')
+            ->where('resp_counters.status', 'Complete')
+            ->orderBy('resp_counters.enddate', 'ASC')
+            ->get())
+            ->unique('respid');
+
         $country = [];
         foreach ($rawdataset as $data) {
             if (!in_array($data->Languageid, $country) && ($data->Languageid != "")) {
