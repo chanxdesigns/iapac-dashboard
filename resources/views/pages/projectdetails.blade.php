@@ -26,19 +26,19 @@
             </tr>
             <tr>
                 <td>Project Live Link</td>
-                <td>http://project.i-apaconline.com/survey/{{$data->$projectid}}/{{$data->Vendor}}/{{$data->Country}}/lang?id=XXXXX</td>
+                <td>http://project.i-apaconline.com/survey/{{$data->$projectid}}/{{$data->Vendor}}/{{$ccode}}/lang?id=XXXXX</td>
             </tr>
             <tr>
                 <td>Client Complete Link:</td>
-                <td>http://redirects.i-apaconline.com/Complete/{{$data->$projectid}}/XXXXXX/{{$data->Country}}</td>
+                <td>http://redirects.i-apaconline.com/Complete/{{$data->$projectid}}/XXXXXX/{{$ccode}}</td>
             </tr>
             <tr>
                 <td>Client Terminate Link:</td>
-                <td>http://redirects.i-apaconline.com/Incomplete/{{$data->$projectid}}/XXXXXX/{{$data->Country}}</td>
+                <td>http://redirects.i-apaconline.com/Incomplete/{{$data->$projectid}}/XXXXXX/{{$ccode}}</td>
             </tr>
             <tr>
                 <td>Client Quotafull Link:</td>
-                <td>http://redirects.i-apaconline.com/Quotafull/{{$data->$projectid}}/XXXXXX/{{$data->Country}}</td>
+                <td>http://redirects.i-apaconline.com/Quotafull/{{$data->$projectid}}/XXXXXX/{{$ccode}}</td>
             </tr>
             <tr>
                 <td>Vendor Complete Link:</td>

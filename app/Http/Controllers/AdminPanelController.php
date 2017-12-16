@@ -61,6 +61,62 @@ class AdminPanelController extends Controller
      */
     public function viewProjectDetails ($projectid,$vendor,$country) {
         $data = ProjectsList::where('Project ID','=',$projectid)->where('Vendor','=',$vendor)->where('Country','=',$country)->firstOrFail();
-        return view('pages.projectdetails',compact('data'));
+
+        $ccode = "";
+        switch ($data->Country) {
+            case "China":
+                $ccode = "ZH";
+                break;
+            case "Japan":
+                $ccode = "JP";
+                break;
+            case "South Korea":
+                $ccode = "ROK";
+                break;
+            case "Philippines":
+                $ccode = "PH";
+                break;
+            case "Indonesia":
+                $ccode = "ID";
+                break;
+            case "Malaysia":
+                $ccode = "MY";
+                break;
+            case "Vietnam":
+                $ccode = "VN";
+                break;
+            case "India":
+                $ccode = "IN";
+                break;
+            case "Thailand":
+                $ccode = "TH";
+                break;
+            case "Hong Kong":
+                $ccode = "HK";
+                break;
+            case "Singapore":
+                $ccode = "SG";
+                break;
+            case "UAE":
+                $ccode = "UAE";
+                break;
+            case "Saudi Arabia":
+                $ccode = "KSA";
+                break;
+            case "Jordan":
+                $ccode = "JO";
+                break;
+            case "South Africa":
+                $ccode = "SA";
+                break;
+            case "Australia":
+                $ccode = "AUS";
+                break;
+            case "Taiwan":
+                $ccode = "TW";
+                break;
+        }
+
+        return view('pages.projectdetails',compact('data', 'ccode'));
     }
 }
