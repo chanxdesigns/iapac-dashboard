@@ -2,46 +2,46 @@
 
 namespace Dashboard\Http\Controllers;
 
-use Dashboard\RespCounter;
-use Illuminate\Http\Request;
-
-use Dashboard\Http\Requests;
-use Dashboard\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
 class ShowResultsController extends Controller
 {
-    protected function objectToArray ($dataset) {
-        $arrDatas = [];
-        foreach($dataset as $data) {
-            $arrDatas[] = array(
-                'respid' => $data->respid,
-                'projectid' => $data->projectid,
-                'about' => $data->about,
-                'Languageid' => $data->Languageid,
-                'status' => $data->status,
-                'IP' => $data->IP,
-                'enddate' => $data->enddate
-            );
-        }
-        return $arrDatas;
-    }
-
+    /**
+     * Show Complete IDs
+     *
+     * @param $projectid
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showCompleteResults($projectid)
     {
-        $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Complete')->get();
+        //$rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Complete')->get();
+
+        $rawdataset = collect(DB::table('resp_counters')
+            ->leftJoin('survey_prestart', 'resp_counters.respid', '=', 'survey_prestart.user_id')
+            ->where('resp_counters.status', 'Complete')
+            ->orderBy('resp_counters.enddate', 'ASC')
+            ->get())
+            ->unique('respid');
+
         $country = [];
         foreach ($rawdataset as $data) {
             if (!in_array($data->Languageid, $country) && ($data->Languageid != "")) {
                 $country[] = $data->Languageid;
             }
         }
+
         return view('pages.showresults', compact('projectid', 'rawdataset', 'country'));
     }
 
+    /**
+     * Show Terminate IDs
+     *
+     * @param $projectid
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showTerminateResults($projectid)
     {
-        $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Incomplete')->get();
+        $rawdataset = DB::table('resp_counters')->join('survey_prestart', 'projectid', '=', 'survey_prestart.project_id')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Incomplete')->get();
         $country = [];
         foreach ($rawdataset as $data) {
             if (!in_array($data->Languageid, $country) && ($data->Languageid != "")) {
@@ -51,42 +51,12 @@ class ShowResultsController extends Controller
         return view('pages.showresults', compact('projectid', 'rawdataset', 'country'));
     }
 
-    public function showMobileTermResults ($projectid)
-    {
-        $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Mobile_Term')->get();
-        $country = [];
-        foreach ($rawdataset as $data) {
-            if (!in_array($data->Languageid, $country) && ($data->Languageid != "")) {
-                $country[] = $data->Languageid;
-            }
-        }
-        return view('pages.showresults', compact('projectid', 'rawdataset', 'country'));
-    }
-
-    public function showSecurityTermResults ($projectid)
-    {
-        $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Security_Term')->get();
-        $country = [];
-        foreach ($rawdataset as $data) {
-            if (!in_array($data->Languageid, $country) && ($data->Languageid != "")) {
-                $country[] = $data->Languageid;
-            }
-        }
-        return view('pages.showresults', compact('projectid', 'rawdataset', 'country'));
-    }
-
-    public function showDropOffsResults ($projectid)
-    {
-        $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Drop_Off')->get();
-        $country = [];
-        foreach ($rawdataset as $data) {
-            if (!in_array($data->Languageid, $country) && ($data->Languageid != "")) {
-                $country[] = $data->Languageid;
-            }
-        }
-        return view('pages.showresults', compact('projectid', 'rawdataset', 'country'));
-    }
-
+    /**
+     * Show Quotafull IDs
+     *
+     * @param $projectid
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showQuotafullResults($projectid)
     {
         $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Quotafull')->get();

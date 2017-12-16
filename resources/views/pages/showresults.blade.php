@@ -29,6 +29,7 @@
                 <th>Resp ID</th>
                 <th>Status</th>
                 <th>Country</th>
+                <th>City</th>
                 <th>IP Address</th>
                 <th>Start Time</th>
                 <th>End Time</th>
@@ -44,6 +45,7 @@
                     <td>{{$data->respid}}</td>
                     <td>{{$data->status}}</td>
                     <td>{{$data->Languageid}}</td>
+                    <td>{{is_null($data->city) ? "No city" : $data->city}}</td>
                     <td>{{$data->IP}}</td>
                     <td>@if ($data->starttime) {{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$data->starttime)->toDayDateTimeString()}} @endif</td>
                     <td>@if ($data->enddate) {{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$data->enddate)->toDayDateTimeString()}} @else {{$data->enddate}} @endif</td>

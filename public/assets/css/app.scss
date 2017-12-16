@@ -179,16 +179,13 @@ body {
   }
   .table {
     border-collapse: collapse;
-    border-right: 1px solid #191919;
-    border-left: 1px solid #191919;
-    border-bottom: 1px solid #191919;
     tr {
       &:hover {
         background: lighten(#212121,5%);
       }
       th {
-        background: #191919;
-        color: #22A7F0;
+        background: #dddddd;
+        color: #333;
         border: none;
         height: 60px;
         vertical-align: middle;
@@ -200,10 +197,11 @@ body {
       td {
         height: 50px;
         vertical-align: middle;
-        color: lighten(#191919,40%);
-        border-color: #191919;
+        background: #dddddd;
+        color: #333;
+        border: 1px solid #444444;
         font-weight: 400;
-        font-family: "Montserrat";
+        font-family: "Open Sans";
         padding: 0 20px;
       }
     }

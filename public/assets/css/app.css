@@ -136,15 +136,12 @@ body {
     height: 40px;
     vertical-align: middle; }
   .show-results .table {
-    border-collapse: collapse;
-    border-right: 1px solid #191919;
-    border-left: 1px solid #191919;
-    border-bottom: 1px solid #191919; }
+    border-collapse: collapse; }
     .show-results .table tr:hover {
       background: #2e2e2e; }
     .show-results .table tr th {
-      background: #191919;
-      color: #22A7F0;
+      background: #dddddd;
+      color: #333;
       border: none;
       height: 60px;
       vertical-align: middle;
@@ -155,10 +152,11 @@ body {
     .show-results .table tr td {
       height: 50px;
       vertical-align: middle;
-      color: #7f7f7f;
-      border-color: #191919;
+      background: #dddddd;
+      color: #333;
+      border: 1px solid #444444;
       font-weight: 400;
-      font-family: "Montserrat";
+      font-family: "Open Sans";
       padding: 0 20px; }
   .show-results .light-color {
     color: gray; }
