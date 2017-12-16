@@ -55,10 +55,10 @@
                     <td>{{$counter}}</td>
                     <td>{{$data->projectid}}</td>
                     <td>{{$data->respid}}</td>
-                    <td>{{$data->vendor}}</td>
+                    <td>{{is_null($data->vendor) ? "---" : $data->vendor}}</td>
                     <td>{{$data->status}}</td>
                     <td>{{$data->Languageid}}</td>
-                    <td>{{is_null($data->city) ? "No city" : $data->city}}</td>
+                    <td>{{is_null($data->city) ? "---" : $data->city}}</td>
                     <td>{{$data->IP}}</td>
                     <td>@if ($data->starttime) {{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$data->starttime)->toDayDateTimeString()}} @endif</td>
                     <td>@if ($data->enddate) {{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$data->enddate)->toDayDateTimeString()}} @else {{$data->enddate}} @endif</td>

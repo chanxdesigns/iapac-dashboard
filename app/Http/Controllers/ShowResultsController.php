@@ -32,13 +32,7 @@ class ShowResultsController extends Controller
      */
     public function showCompleteResults($projectid)
     {
-        $rawdataset = collect(DB::table('resp_counters')
-            ->leftJoin('survey_prestart', 'resp_counters.respid', '=', 'survey_prestart.user_id')
-            ->where('resp_counters.status', 'Complete')
-            ->whereIn('resp_counters.respid', $this->survey_pre_id)
-            ->orderBy('resp_counters.enddate', 'ASC')
-            ->get())
-            ->unique('respid');
+        $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Complete')->get();
 
         $country = [];
         $vendor = [];
@@ -64,13 +58,7 @@ class ShowResultsController extends Controller
      */
     public function showTerminateResults($projectid)
     {
-        $rawdataset = collect(DB::table('resp_counters')
-            ->leftJoin('survey_prestart', 'resp_counters.respid', '=', 'survey_prestart.user_id')
-            ->where('resp_counters.status', 'Incomplete')
-            ->whereIn('resp_counters.respid', $this->survey_pre_id)
-            ->orderBy('resp_counters.enddate', 'ASC')
-            ->get())
-            ->unique('respid');
+        $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Incomplete')->get();
 
         $country = [];
         $vendor = [];
@@ -96,13 +84,7 @@ class ShowResultsController extends Controller
      */
     public function showQuotafullResults($projectid)
     {
-        $rawdataset = collect(DB::table('resp_counters')
-            ->leftJoin('survey_prestart', 'resp_counters.respid', '=', 'survey_prestart.user_id')
-            ->where('resp_counters.status', 'Quotafull')
-            ->whereIn('resp_counters.respid', $this->survey_pre_id)
-            ->orderBy('resp_counters.enddate', 'ASC')
-            ->get())
-            ->unique('respid');
+        $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Quotafull')->get();
 
         $country = [];
         $vendor = [];

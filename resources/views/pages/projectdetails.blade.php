@@ -25,15 +25,31 @@
                 <td>{{$data->$survey_link}}</td>
             </tr>
             <tr>
-                <td>Complete Link:</td>
+                <td>Project Live Link</td>
+                <td>http://project.i-apaconline.com/survey/{{$data->$projectid}}/{{$data->Vendor}}/{{$data->Country}}/lang?id=XXXXX</td>
+            </tr>
+            <tr>
+                <td>Client Complete Link:</td>
+                <td>http://redirects.i-apaconline.com/Complete/{{$data->$projectid}}/XXXXXX/{{$data->Country}}</td>
+            </tr>
+            <tr>
+                <td>Client Terminate Link:</td>
+                <td>http://redirects.i-apaconline.com/Incomplete/{{$data->$projectid}}/XXXXXX/{{$data->Country}}</td>
+            </tr>
+            <tr>
+                <td>Client Quotafull Link:</td>
+                <td>http://redirects.i-apaconline.com/Quotafull/{{$data->$projectid}}/XXXXXX/{{$data->Country}}</td>
+            </tr>
+            <tr>
+                <td>Vendor Complete Link:</td>
                 <td>{{$data->C_Link}}</td>
             </tr>
             <tr>
-                <td>Terminate Link:</td>
+                <td>Vendor Terminate Link:</td>
                 <td>{{$data->T_Link}}</td>
             </tr>
             <tr>
-                <td>Quotafull Link:</td>
+                <td>Vendor Quotafull Link:</td>
                 <td>{{$data->Q_Link}}</td>
             </tr>
         </table>
