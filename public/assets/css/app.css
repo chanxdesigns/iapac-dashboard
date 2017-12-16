@@ -128,7 +128,7 @@ body {
 .show-results {
   margin-top: 50px;
   color: #a1a1a1; }
-  .show-results select#country {
+  .show-results select#country, .show-results select#vendor {
     border-radius: 4px;
     background: #191919;
     color: #a1a1a1;

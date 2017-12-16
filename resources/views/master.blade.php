@@ -40,6 +40,8 @@
     @yield('content')
 </div>
 
+@yield('show')
+
 <footer>
     <div class="container">
         <p class="attestation">&copy; Copyright <a href="http://www.i-apaconline.com">I-Apac Online</a> {{\Carbon\Carbon::now()->year}}</p>

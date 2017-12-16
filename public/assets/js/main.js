@@ -73,6 +73,36 @@ $(document).ready(function () {
 
     });
 
+    /**
+     * Vendor
+     */
+
+    $("#vendor").change(function () {
+        var $this = $(this);
+        var value = $this.val();
+        var rows = $("#results-body").find("tr");
+
+        //Show Rows If Value is 0
+        if (value === "0" || value === "") {
+            rows.fadeIn();
+            displayRowsCount("0");
+            return;
+        }
+
+        //Hide All Rows
+        rows.hide();
+
+        //Filter recursively to check if the value of the select dropdown exists in any table
+        //And display those that contains.
+        rows.filter(function () {
+            var t = $(this);
+            return t.text().indexOf(value) > -1;
+        }).fadeIn();
+
+        displayRowsCount();
+
+    });
+
     // Download as CSV
     var splitted_path = window.location.pathname.split('/'),
         url = window.location.origin + '/download/' + splitted_path[1] + '/' + splitted_path[2];

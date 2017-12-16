@@ -4,16 +4,24 @@
     Listing all the entries for Project ID: {{$projectid}}
     @stop
 
-@section('content')
+@section('show')
     <div class="show-results">
+        <div class="container">
         <h3>Showing results for Project ID: <span class="label label-primary">{{$projectid}}</span></h3>
         <br>
         <div class="filter-table pull-left">
-            Filter by country:
+            Filters:
             <select id="country">
                 <option value="0" selected>Select a country</option>
                 @for ($i = 0; $i < count($country); $i++)
                     <option value="{{$country[$i]}}">{{$country[$i]}}</option>
+                @endfor
+            </select>
+
+            <select id="vendor">
+                <option value="0" selected>Select vendor</option>
+                @for ($i = 0; $i < count($vendor); $i++)
+                    <option value="{{$vendor[$i]}}">{{$vendor[$i]}}</option>
                 @endfor
             </select>
         </div>
@@ -21,12 +29,16 @@
         <div class="total-count pull-right">
             <p>Total Number of rows: <span class="label label-primary"></span></p>
         </div>
-        <table id="results" class="table table-hover">
+        </div>
+
+        <div class="container-fluid">
+        <table id="results" class="table table-hover table-responsive">
             <thead>
             <tr>
                 <th>Counter</th>
                 <th>Project ID</th>
                 <th>Resp ID</th>
+                <th>Vendor</th>
                 <th>Status</th>
                 <th>Country</th>
                 <th>City</th>
@@ -43,6 +55,7 @@
                     <td>{{$counter}}</td>
                     <td>{{$data->projectid}}</td>
                     <td>{{$data->respid}}</td>
+                    <td>{{$data->vendor}}</td>
                     <td>{{$data->status}}</td>
                     <td>{{$data->Languageid}}</td>
                     <td>{{is_null($data->city) ? "No city" : $data->city}}</td>
@@ -55,5 +68,6 @@
                 @endforeach
             </tbody>
         </table>
+        </div>
     </div>
     @stop
