@@ -39,9 +39,7 @@ class ProjectController extends Controller
                     ]
                 );
                 $status = 201;
-                if (count($create) > 0) {
-                    return view('pages.createstatus', compact('status','request'));
-                }
+                return view('pages.createstatus', compact('status','request'));
             } else {
                 return view('pages.createstatus', ['status' => 403]);
             }
