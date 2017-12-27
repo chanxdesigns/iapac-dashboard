@@ -68,6 +68,9 @@
                 @endforeach
             </tbody>
         </table>
+        
+        <!-- Pagination -->
+        {{ $rawdataset->links() }}
         </div>
     </div>
     @stop
