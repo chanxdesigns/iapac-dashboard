@@ -8,23 +8,6 @@ use Illuminate\Support\Facades\DB;
 class ShowResultsController extends Controller
 {
     /**
-     * Tracking IDs
-     * @var array
-     */
-    protected $survey_pre_id = array();
-
-    public function __construct(Request $request)
-    {
-        $results = DB::table('survey_prestart')
-            ->where('project_id', $request->route('projectid'))
-            ->get();
-
-        foreach (collect($results)->unique('user_id') as $result) {
-            array_push($this->survey_pre_id, $result->user_id);
-        }
-    }
-
-    /**
      * Show Complete IDs
      *
      * @param $projectid
