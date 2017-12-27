@@ -70,7 +70,7 @@
         </table>
         
         <!-- Pagination -->
-        {{ $rawdataset->links() }}
+        {{ $rawdataset->render() }}
         </div>
     </div>
     @stop
