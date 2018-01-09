@@ -2,6 +2,8 @@
 
 namespace Dashboard\Console;
 
+use Dashboard\Console\Commands\IncludeCity;
+use Dashboard\Console\Commands\IncludeVendor;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -14,6 +16,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \Dashboard\Console\Commands\Inspire::class,
+        IncludeVendor::class,
+        IncludeCity::class,
     ];
 
     /**

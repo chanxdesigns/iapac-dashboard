@@ -15,7 +15,7 @@ class ShowResultsController extends Controller
      */
     public function showCompleteResults($projectid)
     {
-        $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Complete')->paginate(100);
+        $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Complete')->orderBy('created_at', 'desc')->paginate(100);
 
         $country = [];
         $vendor = [];
@@ -41,7 +41,7 @@ class ShowResultsController extends Controller
      */
     public function showTerminateResults($projectid)
     {
-        $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Incomplete')->paginate(100);
+        $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Incomplete')->orderBy('created_at', 'desc')->paginate(100);
 
         $country = [];
         $vendor = [];
@@ -67,7 +67,7 @@ class ShowResultsController extends Controller
      */
     public function showQuotafullResults($projectid)
     {
-        $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Quotafull')->paginate(100);
+        $rawdataset = DB::table('resp_counters')->select('*')->where('projectid', '=', $projectid)->where('status', '=', 'Quotafull')->orderBy('created_at', 'desc')->paginate(100);
 
         $country = [];
         $vendor = [];
