@@ -27,7 +27,8 @@
         </div>
         &nbsp;<a class="btn btn-success" id="csv_download">Download as CSV</a>
         <div class="total-count pull-right">
-            <p>Total Number of rows: <span class="label label-primary"></span></p>
+            <span>Total number of results: {{count($rawdataset)}}</span>
+            <span>Total number of rows: <span class="label label-primary"></span></span>
         </div>
         </div>
 
