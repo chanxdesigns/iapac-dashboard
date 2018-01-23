@@ -26,11 +26,11 @@
                 </select>
             </div>
             &nbsp;<a class="btn btn-success" id="csv_download">Download as CSV</a>
-            <div class="pull-right r-total">
-                <span>Total number of results: {{$rawdataset->total()}}</span>
-            </div>
             <div class="total-count pull-right">
                 <p>Total number of rows: <span class="label label-primary"></span></p>
+            </div>
+            <div class="pull-right r-total">
+                <span>Total number of results: {{$rawdataset->total()}}</span>
             </div>
         </div>
 
