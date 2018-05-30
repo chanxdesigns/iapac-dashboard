@@ -449,8 +449,8 @@ $(document).ready(function () {
             if (!chart) {
                 makeChart(data);
             } else {
-                //updateChart(chart, data);
+                updateChart(chart, data);
             }
         })
-    }, 1000);
+    }, 10000);
 });
