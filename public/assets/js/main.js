@@ -354,7 +354,7 @@ $(document).ready(function () {
         chart;
 
     function getData() {
-        return $.post('http://localhost:3000/getchartdata', parseQuery(window.location.search))
+        return $.post(window.location.origin + '/getchartdata', parseQuery(window.location.search))
             .then(function (data) {
                 var chartData = {
                     labels: [],
