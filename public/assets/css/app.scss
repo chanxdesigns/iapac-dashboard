@@ -535,3 +535,24 @@ footer {
 .r-total {
   margin-right: 20px;
 }
+
+.chart-buttons {
+  margin: 0 0 20px;
+}
+
+.chart-back {
+  background: $white;
+  padding-bottom: 40px;
+
+  .container {
+    background: transparent;
+  }
+}
+
+.chart-container {
+  margin: 40px 0;
+
+  .title {
+    color: $midnightblue;
+  }
+}

@@ -36,9 +36,8 @@
 </header>
 <body>
 
-<div class="container">
-    @yield('content')
-</div>
+@yield('content')
+
 
 @yield('show')
 
@@ -51,6 +50,7 @@
 
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 <script src="{{url("https://use.fonticons.com/5334e492.js")}}"></script>
 <script src="{{asset('assets/js/main.js')}}"></script>
 </body>

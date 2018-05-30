@@ -1,6 +1,7 @@
 @extends('master')
 
 @section('content')
+    <div class="container">
     <div class="create-response">
         @if ($status === 201)
             <h1 class="success">Project has been successfully created</h1>
@@ -48,5 +49,6 @@
         <div class="status-button">
             <a href="/adminpanel" class="info">Back to Admin Panel</a>
         </div>
+    </div>
     </div>
     @stop

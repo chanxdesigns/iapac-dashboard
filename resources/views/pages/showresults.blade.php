@@ -30,8 +30,16 @@
                 <p>Total number of rows: <span class="label label-primary"></span></p>
             </div>
             <div class="pull-right r-total">
-                <span>Total number of results: <span class="label label-primary">{{$rawdataset->total()}}</span></span>
+                    <span>Total number of results: <span
+                                class="label label-primary">{{$rawdataset->total()}}</span></span>
             </div>
+        </div>
+
+        <div class="container chart-buttons">
+            @for ($i = 0; $i < count($country); $i++)
+                <a class="btn btn-success" href="/chart?id={{$projectid}}&country={{$country[$i]}}">Chart
+                    for {{$country[$i]}}</a>
+            @endfor
         </div>
 
         <div class="container-fluid">

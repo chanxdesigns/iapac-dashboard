@@ -3,7 +3,7 @@ $(document).ready(function () {
      * @type {*|jQuery}
      * Globally required variables
      */
-    //Get the CSRF token for POST method authentication
+        //Get the CSRF token for POST method authentication
     var token = $("meta[name='token']").attr("content");
 
     /**
@@ -12,11 +12,11 @@ $(document).ready(function () {
      */
 
     //Show Modal form
-    function showModal (classname,msg) {
+    function showModal(classname, msg) {
         var elem = $(classname);
         elem.find(".modal-body p").remove();
         elem.find(".modal-body").append(
-            "<p>"+msg+"</p>"
+            "<p>" + msg + "</p>"
         )
     }
 
@@ -32,15 +32,15 @@ $(document).ready(function () {
      * Filter results by country
      * Count the number of rows displayed
      */
-    function displayRowsCount (value) {
+    function displayRowsCount(value) {
         if (value != "0") {
             var visible_rows = $("#results-body").find("tr").filter(':visible').length;
             $("p span").remove();
-            $(".total-count p").append("<span class='label label-primary'>"+visible_rows+"</span>");
+            $(".total-count p").append("<span class='label label-primary'>" + visible_rows + "</span>");
         } else {
             var all_rows = $("#results-body").find("tr").length;
             $("p span").remove();
-            $(".total-count p").append("<span class='label label-primary'>"+all_rows+"</span>");
+            $(".total-count p").append("<span class='label label-primary'>" + all_rows + "</span>");
         }
     }
 
@@ -111,32 +111,32 @@ $(document).ready(function () {
     /*-------------------------------------------------------
      *  Admin Menu
      */
-    var projectid,status,country;
+    var projectid, status, country;
 
     projectid = $(".projectid select").val();
     status = $(".status select").val();
     country = $(".country select").val();
 
-    $('.admin-panel .projectid').change(function (){
+    $('.admin-panel .projectid').change(function () {
         var $this = $(this);
         projectid = $this.find('select').val();
     });
 
-    $('.admin-panel .status').change(function (){
+    $('.admin-panel .status').change(function () {
         var $this = $(this);
         status = $this.find('select').val();
     });
 
-    $('.admin-panel .country').change(function (){
+    $('.admin-panel .country').change(function () {
         var $this = $(this);
         country = $this.find('select').val();
     });
 
     // Make URL to send request through
-    function makeUrl () {
+    function makeUrl() {
         var url;
         if (projectid !== "null" && status !== "null" && country !== "null") {
-            url = "http://"+location.host+"/adminpanel/projects/"+projectid+'/'+status+'/'+country;
+            url = "http://" + location.host + "/adminpanel/projects/" + projectid + '/' + status + '/' + country;
         } else {
             if (projectid === "null") {
                 alert("Please select project id !")
@@ -174,7 +174,7 @@ $(document).ready(function () {
         //Get URL
         var url = makeUrl();
         //Send the database query via Ajax and get JSON results
-        $.ajax(url,{
+        $.ajax(url, {
             dataType: 'json'
         }).done(function (data) {
             if (data.length > 0) {
@@ -195,22 +195,22 @@ $(document).ready(function () {
      * Delete Items from database
      */
 
-    //Create a array to hold the array of items
+        //Create a array to hold the array of items
     var check_value = [];
     //Add/Remove items from the array on click
     $(document).on("click", ".checkbox", function () {
         var $this = $(this);
         var val = $this.val();
         if ($this.prop("checked")) {
-            $this.parents(".resp-data-lists").css("background","#ff9999");
-            if ($.inArray(val,check_value) === -1) {
+            $this.parents(".resp-data-lists").css("background", "#ff9999");
+            if ($.inArray(val, check_value) === -1) {
                 check_value.push(val);
             }
         } else {
-            $this.parents(".resp-data-lists").css("background","transparent");
-            if ($.inArray(val,check_value) > -1) {
-                var index = $.inArray(val,check_value);
-                check_value.splice(index,1);
+            $this.parents(".resp-data-lists").css("background", "transparent");
+            if ($.inArray(val, check_value) > -1) {
+                var index = $.inArray(val, check_value);
+                check_value.splice(index, 1);
             }
         }
         //Make the Delete Button
@@ -220,7 +220,7 @@ $(document).ready(function () {
     //Hide the button by default on load
     $(".delete").hide();
     //The make delete button function
-    function makeDeleteButton (check_value) {
+    function makeDeleteButton(check_value) {
         var elem = $(".delete");
         if (check_value.length > 0) {
             var count = check_value.length;
@@ -238,15 +238,15 @@ $(document).ready(function () {
     //Delete the list/lists on click
     $(document).on("click", ".delete", deleteItem);
 
-    function deleteItem () {
+    function deleteItem() {
         //Message for modal
-        var msg = "You are about to delete "+check_value.length+" items.";
-        showModal(".delete-modal",msg);
+        var msg = "You are about to delete " + check_value.length + " items.";
+        showModal(".delete-modal", msg);
     }
 
     $(document).on('click', '.delete-modal .yes', function () {
         //
-        var url = "http://"+location.host+"/adminpanel/projects/delete";
+        var url = "http://" + location.host + "/adminpanel/projects/delete";
         //JSONify the data
         var data = JSON.stringify(check_value);
         console.log(data);
@@ -297,7 +297,7 @@ $(document).ready(function () {
     $('#pullprojects').click(function () {
         var elemContainer = $(".view-projects ul");
         if (!elemContainer.html()) {
-            var url = "http://"+window.location.host+"/adminpanel/projects";
+            var url = "http://" + window.location.host + "/adminpanel/projects";
             $.ajax({
                 url: url,
                 type: 'GET',
@@ -310,10 +310,10 @@ $(document).ready(function () {
                 for (var i = 0; i < data.length; i++) {
                     elemContainer.append(
                         "<li>" +
-                        "<a href='/adminpanel/projects/" +data[i]['Project ID']+ "/" +data[i].Vendor+ "/" +data[i].Country+ "'>"+data[i]['Project ID']+"</a>" +
-                        "<p>"+data[i].Country+"</p>" +
-                        "<p>"+data[i].About+"</p>" +
-                        "<h4>"+data[i].Vendor+"</h4>" +
+                        "<a href='/adminpanel/projects/" + data[i]['Project ID'] + "/" + data[i].Vendor + "/" + data[i].Country + "'>" + data[i]['Project ID'] + "</a>" +
+                        "<p>" + data[i].Country + "</p>" +
+                        "<p>" + data[i].About + "</p>" +
+                        "<h4>" + data[i].Vendor + "</h4>" +
                         "</li>"
                     )
                 }
@@ -329,9 +329,128 @@ $(document).ready(function () {
      */
     $('#deletePrj').click(function (e) {
         var elem = $('.status-button p').text();
-        var m = confirm("Are you sure you want to delete: "+ elem +"?");
+        var m = confirm("Are you sure you want to delete: " + elem + "?");
         if (!m) {
             e.preventDefault();
         }
-    })
+    });
+
+    /**
+     * ChartJS Config
+     *
+     * @type {*}
+     */
+    function parseQuery(queryString) {
+        var query = {};
+        var pairs = (queryString[0] === '?' ? queryString.substr(1) : queryString).split('&');
+        for (var i = 0; i < pairs.length; i++) {
+            var pair = pairs[i].split('=');
+            query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+        }
+        return query;
+    }
+
+    var ctx = $("#myChart"),
+        chart;
+
+    function getData() {
+        return $.post('http://localhost:3000/getchartdata', parseQuery(window.location.search))
+            .then(function (data) {
+                var chartData = {
+                    labels: [],
+                    complete: [],
+                    terminate: [],
+                    quotaful: [],
+                    total: []
+                };
+
+                for (var i = 0; i < data.length; i++) {
+                    chartData.labels.push(data[i].vendor);
+                    chartData.complete.push(data[i].complete);
+                    chartData.terminate.push(data[i].terminate);
+                    chartData.quotaful.push(data[i].quotaful);
+                    chartData.total.push(data[i].total);
+                }
+
+                return chartData;
+            });
+    }
+
+    function makeChart(data) {
+        chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: 'Completes',
+                    data: data.complete,
+                    type: 'line',
+                    borderColor: '#2ECC71',
+                    fill: false
+                }, {
+                    label: 'Terminates',
+                    data: data.terminate,
+                    type: 'line',
+                    borderColor: '#F64747',
+                    fill: false
+                }, {
+                    label: 'Quotaful',
+                    data: data.quotaful,
+                    type: 'line',
+                    borderColor: '#EB974E',
+                    fill: false
+                },{
+                    label: 'Total',
+                    data: data.total,
+                    backgroundColor: '#BDC3C7'
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                legend: {
+                    labels: {
+                        //fontColor: '#FFF',
+                        fontFamily: 'Segoe UI'
+                    }
+                }
+                //animation: false
+            }
+        });
+
+        $("#chartMsg").remove();
+    }
+
+    function updateChart(chart, data) {
+        chart.data.labels = data.labels;
+        chart.data.datasets.forEach(function (dataset) {
+            if (dataset.label === 'Total') {
+                dataset.data = data.total;
+            } else if (dataset.label === 'Completes') {
+                dataset.data = data.complete;
+            } else if (dataset.label === 'Terminates') {
+                dataset.data = data.terminate;
+            }
+            else if (dataset.label === 'Quotaful') {
+                dataset.data = data.quotaful;
+            }
+        });
+
+        chart.update();
+    }
+
+    setInterval(function () {
+        $.when(getData()).then(function (data) {
+            if (!chart) {
+                makeChart(data);
+            } else {
+                updateChart(chart, data);
+            }
+        })
+    }, 1000);
 });

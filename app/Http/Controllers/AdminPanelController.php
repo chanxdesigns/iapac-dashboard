@@ -3,14 +3,9 @@
 namespace Dashboard\Http\Controllers;
 
 use Dashboard\ProjectsList;
-use Dashboard\RespCounter;
 use Illuminate\Http\Request;
 
-use Dashboard\Http\Requests;
-use Dashboard\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Response;
 
 class AdminPanelController extends Controller
 {

@@ -401,4 +401,18 @@ footer {
 .r-total {
   margin-right: 20px; }
 
+.chart-buttons {
+  margin: 0 0 20px; }
+
+.chart-back {
+  background: #FFFFFF;
+  padding-bottom: 40px; }
+  .chart-back .container {
+    background: transparent; }
+
+.chart-container {
+  margin: 40px 0; }
+  .chart-container .title {
+    color: #212121; }
+
 /*# sourceMappingURL=app.css.map */
