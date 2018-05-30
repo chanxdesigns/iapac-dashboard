@@ -84,11 +84,13 @@ class ChartingController extends Controller
         $arr = array();
         foreach ($responses as $response) {
             if (!is_null($response->vendor)) {
-                if (!in_array($response->vendor, $arr)) {
-                    array_push($arr, $response->vendor);
+                if (!in_array(strtoupper($response->vendor), $arr)) {
+                    array_push($arr, strtoupper($response->vendor));
                 }
             }
         }
+
+        //var_dump($arr);
 
         $newArr = array();
         for ($i = 0; $i < count($arr); $i++) {
@@ -106,7 +108,7 @@ class ChartingController extends Controller
                     ->count(),
                 "quotaful" => DB::table('resp_counters')->where('projectid', $id)
                     ->where('vendor', $arr[$i])
-                    ->where('status', 'Quotaful')
+                    ->where('status', 'Quotafull')
                     ->where('Languageid', $request->input('country'))
                     ->count(),
                 "total" => DB::table('survey_prestart')->where('project_id', $id)
