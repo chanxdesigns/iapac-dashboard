@@ -16,7 +16,7 @@ Route::get('/home', "HomeController@hello");
 Route::get('completes', "ProjectStatusController@showCompletes");
 Route::get('complete/{projectid}', "ShowResultsController@showCompleteResults");
 Route::get('incompletes', "ProjectStatusController@showTerminates");
-Route::get('terminate/{projectid}', "ShowResultsController@showTerminateResults");
+Route::get('incomplete/{projectid}', "ShowResultsController@showTerminateResults");
 Route::get('quotafull', "ProjectStatusController@showQuotafull");
 Route::get('quotafull/{projectid}', "ShowResultsController@showQuotafullResults");
 Route::get('mobile_term', "ProjectStatusController@showMobileTerm");
