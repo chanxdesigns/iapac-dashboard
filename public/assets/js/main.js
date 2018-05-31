@@ -386,28 +386,42 @@ $(document).ready(function () {
                     data: data.complete,
                     type: 'line',
                     borderColor: '#2ECC71',
+                    pointBackgroundColor: '#2ECC71',
+                    pointBorderWidth: 20,
                     fill: false
                 }, {
                     label: 'Terminates',
                     data: data.terminate,
                     type: 'line',
                     borderColor: '#F64747',
+                    pointBackgroundColor: '#F64747',
+                    pointBorderWidth: 20,
                     fill: false
                 }, {
                     label: 'Quotaful',
                     data: data.quotaful,
                     type: 'line',
-                    borderColor: '#EB974E',
+                    borderColor: '#FABE58',
+                    pointBackgroundColor: '#FABE58',
+                    pointBorderWidth: 20,
                     fill: false
                 },{
                     label: 'Total',
                     data: data.total,
-                    backgroundColor: '#BDC3C7'
+                    backgroundColor: '#ECECEC'
                 }]
             },
             options: {
                 scales: {
+                    xAxes: [{
+                        gridLines: {
+                            color: "#777777"
+                        }
+                    }],
                     yAxes: [{
+                        gridLines: {
+                            color: "#777777"
+                        },
                         ticks: {
                             beginAtZero: true
                         }
@@ -415,7 +429,6 @@ $(document).ready(function () {
                 },
                 legend: {
                     labels: {
-                        //fontColor: '#FFF',
                         fontFamily: 'Segoe UI'
                     }
                 }
