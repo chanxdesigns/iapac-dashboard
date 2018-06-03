@@ -365,7 +365,7 @@ $(document).ready(function () {
                 };
 
                 for (var i = 0; i < data.length; i++) {
-                    chartData.labels.push(data[i].vendor);
+                    chartData.labels.push(data[i].vendor + " " +data[i].complete);
                     chartData.complete.push(data[i].complete);
                     chartData.terminate.push(data[i].terminate);
                     chartData.quotaful.push(data[i].quotaful);
@@ -409,13 +409,19 @@ $(document).ready(function () {
                     label: 'Total',
                     data: data.total,
                     backgroundColor: '#ECECEC'
-                }]
+                }],
+                options: {}
             },
             options: {
                 scales: {
                     xAxes: [{
                         gridLines: {
                             color: "#777777"
+                        },
+                        ticks: {
+                            fontFamily: "Segoe UI",
+                            fontColor: "#444444",
+                            fontSize: 20
                         }
                     }],
                     yAxes: [{
@@ -423,7 +429,10 @@ $(document).ready(function () {
                             color: "#777777"
                         },
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            fontFamily: "Segoe UI",
+                            fontColor: "#444444",
+                            fontSize: 20
                         }
                     }]
                 },
