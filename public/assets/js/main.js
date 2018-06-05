@@ -466,8 +466,16 @@ $(document).ready(function () {
         chart.update();
     }
 
+    function getTotalCompletes(completeVal) {
+        return completeVal.reduce(function (a, b) {
+            return a + b;
+        })
+    }
+
     setInterval(function () {
         $.when(getData()).then(function (data) {
+            $('.chart-back .completes span').html(getTotalCompletes(data.complete));
+
             if (!chart) {
                 makeChart(data);
             } else {

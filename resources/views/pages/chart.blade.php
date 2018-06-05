@@ -10,6 +10,8 @@
             <div id="chartMsg"><h3>Loading Chart ...</h3></div>
 
             <canvas id="myChart"></canvas>
+
+            <h3 class="completes text-center">Completes: <span>0</span></h3>
         </div>
     </div>
 @endsection
