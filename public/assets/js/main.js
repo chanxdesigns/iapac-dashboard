@@ -351,10 +351,11 @@ $(document).ready(function () {
     }
 
     var ctx = $("#myChart"),
-        chart;
+        chart,
+        ajaxReq;
 
     function getData() {
-        return $.post(window.location.origin + '/getchartdata', parseQuery(window.location.search))
+        return ajaxReq = $.post(window.location.origin + '/getchartdata', parseQuery(window.location.search))
             .then(function (data) {
                 var chartData = {
                     labels: [],
@@ -469,18 +470,20 @@ $(document).ready(function () {
     function getTotalCompletes(completeVal) {
         return completeVal.reduce(function (a, b) {
             return a + b;
-        })
+        });
     }
 
     setInterval(function () {
-        $.when(getData()).then(function (data) {
-            $('.chart-back .completes span').html(getTotalCompletes(data.complete));
+        if (ajaxReq === undefined || ajaxReq.state() === "resolved") {
+            $.when(getData()).then(function (data) {
+                $('.chart-back .completes span').html(getTotalCompletes(data.complete));
 
-            if (!chart) {
-                makeChart(data);
-            } else {
-                updateChart(chart, data);
-            }
-        })
+                if (!chart) {
+                    makeChart(data);
+                } else {
+                    updateChart(chart, data);
+                }
+            });
+        }
     }, 10000);
 });
