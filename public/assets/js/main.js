@@ -473,7 +473,7 @@ $(document).ready(function () {
         });
     }
 
-    setInterval(function () {
+    function render() {
         if (ajaxReq === undefined || ajaxReq.state() === "resolved") {
             $.when(getData()).then(function (data) {
                 $('.chart-back .completes span').html(getTotalCompletes(data.complete));
@@ -485,5 +485,9 @@ $(document).ready(function () {
                 }
             });
         }
-    }, 10000);
+
+        setInterval(render, 10000);
+    }
+
+    render();
 });
