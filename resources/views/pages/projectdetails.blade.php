@@ -27,8 +27,7 @@
                 </tr>
                 <tr>
                     <td>Project Live Link</td>
-                    <td>http://project.i-apaconline.com/survey/{{$data->$projectid}}/{{$data->Vendor}}/{{$ccode}}
-                        /lang?id=XXXXX
+                    <td>http://project.i-apaconline.com/survey/{{$data->$projectid}}/{{$data->Vendor}}/{{$ccode}}/lang?id=XXXXX
                     </td>
                 </tr>
                 <tr>

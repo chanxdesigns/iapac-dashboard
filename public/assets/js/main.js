@@ -352,6 +352,7 @@ $(document).ready(function () {
 
     var ctx = $("#myChart"),
         chart,
+        timeChart,
         ajaxReq;
 
     function getData() {
@@ -490,4 +491,4 @@ $(document).ready(function () {
     }
 
     render();
-});
+}) ;
