@@ -489,7 +489,7 @@ $(document).ready(function () {
             });
         }
 
-        setInterval(render, 10000);
+        setInterval(render, 1000 * 60 * 10);
     }
 
     if (window.location.pathname === '/chart') {
