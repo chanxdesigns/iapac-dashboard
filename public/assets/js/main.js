@@ -367,7 +367,7 @@ $(document).ready(function () {
                 };
 
                 for (var i = 0; i < data.length; i++) {
-                    chartData.labels.push(data[i].vendor + " " +data[i].complete);
+                    chartData.labels.push(data[i].vendor + " " +data[i].complete + " / IR: " + ((data[i].complete/data[i].total) * 100).toFixed(1) + "%");
                     chartData.complete.push(data[i].complete);
                     chartData.terminate.push(data[i].terminate);
                     chartData.quotaful.push(data[i].quotaful);
@@ -423,7 +423,7 @@ $(document).ready(function () {
                         ticks: {
                             fontFamily: "Segoe UI",
                             fontColor: "#444444",
-                            fontSize: 20
+                            fontSize: 15
                         }
                     }],
                     yAxes: [{
@@ -434,7 +434,7 @@ $(document).ready(function () {
                             beginAtZero: true,
                             fontFamily: "Segoe UI",
                             fontColor: "#444444",
-                            fontSize: 20
+                            fontSize: 15
                         }
                     }]
                 },

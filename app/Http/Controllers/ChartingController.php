@@ -72,6 +72,12 @@ class ChartingController extends Controller
         return $ccode;
     }
 
+    /**
+     * Get chart data
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getChartData(Request $request)
     {
         $id = $request->input('id');
@@ -90,7 +96,12 @@ class ChartingController extends Controller
             }
         }
 
-        //var_dump($arr);
+//        for ($i = 0; $i < count($arr); $i++) {
+//            $kd = DB::table('survey_prestart')->where('project_id', $id)
+//                ->where('vendor', $arr[$i])
+//                ->count();
+//        }
+
 
         $newArr = array();
         for ($i = 0; $i < count($arr); $i++) {
