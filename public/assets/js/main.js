@@ -469,9 +469,11 @@ $(document).ready(function () {
     }
 
     function getTotalCompletes(completeVal) {
-        return completeVal.reduce(function (a, b) {
-            return a + b;
-        });
+        if (completeVal.length) {
+            return completeVal.reduce(function (a, b) {
+                return a + b;
+            });
+        }
     }
 
     function render() {
