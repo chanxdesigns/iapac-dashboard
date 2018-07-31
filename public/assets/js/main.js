@@ -366,12 +366,16 @@ $(document).ready(function () {
                     total: []
                 };
 
+                var ir = $('#ir');
+
                 for (var i = 0; i < data.length; i++) {
-                    chartData.labels.push(data[i].vendor + " " +data[i].complete + " / IR: " + ((data[i].complete/data[i].total) * 100).toFixed(1) + "%");
+                    chartData.labels.push(data[i].vendor + " " +data[i].complete);
                     chartData.complete.push(data[i].complete);
                     chartData.terminate.push(data[i].terminate);
                     chartData.quotaful.push(data[i].quotaful);
                     chartData.total.push(data[i].total);
+
+                    ir.append('<p style="text-align: center; font-size: 20px; display: inline-block; margin-right: 20px;"><strong>'+ data[i].vendor + ' IR: <span style="color: red">' + ((data[i].complete/data[i].total) * 100).toFixed(1) +'%</span></strong></p>')
                 }
 
                 return chartData;
@@ -423,7 +427,7 @@ $(document).ready(function () {
                         ticks: {
                             fontFamily: "Segoe UI",
                             fontColor: "#444444",
-                            fontSize: 15
+                            fontSize: 20
                         }
                     }],
                     yAxes: [{
@@ -434,7 +438,7 @@ $(document).ready(function () {
                             beginAtZero: true,
                             fontFamily: "Segoe UI",
                             fontColor: "#444444",
-                            fontSize: 15
+                            fontSize: 20
                         }
                     }]
                 },
@@ -443,7 +447,6 @@ $(document).ready(function () {
                         fontFamily: 'Segoe UI'
                     }
                 }
-                //animation: false
             }
         });
 

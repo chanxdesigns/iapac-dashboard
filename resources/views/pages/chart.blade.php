@@ -11,7 +11,9 @@
 
             <canvas id="myChart"></canvas>
 
-            <h3 class="completes text-center">Completes: <span>0</span></h3>
+            <h3 class="completes text-center">Completes: <span style="background: yellow">0</span></h3>
+
+            <div id="ir" style="text-align: center; width: 100%"></div>
         </div>
     </div>
 @endsection

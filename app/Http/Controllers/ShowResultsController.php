@@ -92,10 +92,6 @@ class ShowResultsController extends Controller
         }
 
         foreach ($rawdataset as $data) {
-//            if (!in_array($data->Languageid, $country) && ($data->Languageid != "")) {
-//                $country[] = $data->Languageid;
-//            }
-
             if (!in_array($data->vendor, $vendor) && ($data->vendor != "")) {
                 $vendor[] = $data->vendor;
             }
@@ -128,10 +124,6 @@ class ShowResultsController extends Controller
         }
 
         foreach ($rawdataset as $data) {
-//            if (!in_array($data->Languageid, $country) && ($data->Languageid != "")) {
-//                $country[] = $data->Languageid;
-//            }
-
             if (!in_array($data->vendor, $vendor) && ($data->vendor != "")) {
                 $vendor[] = $data->vendor;
             }
