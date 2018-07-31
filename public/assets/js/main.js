@@ -492,5 +492,8 @@ $(document).ready(function () {
         setInterval(render, 10000);
     }
 
-    render();
+    if (window.location.pathname === '/chart') {
+        console.log('Chart Page . .It is');
+        render();
+    }
 }) ;
